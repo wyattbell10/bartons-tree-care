@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barton's Tree Care | Tree Service in Anne Arundel County</title>
+    <meta name="description" content="Licensed tree care serving Anne Arundel County from Crofton, MD. Barton's Tree Care provides tree removal, pruning, storm damage remediation, stump grinding, lot clearing, and risk assessments. Call (443) 306-3037.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+        --g900: #172e22;
+        --g800: #1d3a2c;
+        --g700: #254d3a;
+        --g600: #2d6048;
+        --g500: #3a7a5c;
+        --g400: #4e9970;
+        --g300: #6ab887;
+        --g200: #a3d4b5;
+
+        --cr100: #faf7f0;
+        --cr200: #f2edd8;
+        --cr300: #e6dfc8;
+
+        --ch900: #181818;
+        --ch800: #242424;
+        --ch700: #333333;
+        --ch600: #4d4d4d;
+        --ch500: #6b6b6b;
+
+        --earth600: #7a5c3a;
+        --earth400: #b08a60;
+        --earth200: #d4b896;
+
+        --gold: #d4941c;
+        --white: #ffffff;
+
+        --ff-display: 'Oswald', sans-serif;
+        --ff-body: 'Source Sans 3', sans-serif;
+
+        --r-sm: 6px;
+        --r-md: 12px;
+        --r-lg: 20px;
+
+        --sh-sm: 0 1px 4px rgba(23,46,34,.07);
+        --sh-md: 0 4px 18px rgba(23,46,34,.10);
+        --sh-lg: 0 8px 36px rgba(23,46,34,.14);
+
+        --ease: .2s ease;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--ff-body);
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--ch800);
+        background: var(--cr100);
+        overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    .sr-only {
+        position: absolute; width: 1px; height: 1px; padding: 0;
+        margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+        white-space: nowrap; border-width: 0;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    h1, h2, h3, h4 {
+        font-family: var(--ff-display);
+        font-weight: 600;
+        line-height: 1.12;
+        letter-spacing: .02em;
+    }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; }
+    h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
+
+    /* ============================================================
+       LAYOUT HELPERS
+    ============================================================ */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-alt { background: var(--cr200); }
+
+    .section-header {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto 60px;
+    }
+    .section-label {
+        display: inline-block;
+        font-size: .74rem;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--earth600);
+        margin-bottom: 10px;
+    }
+    .section-header h2 {
+        color: var(--g900);
+        text-transform: uppercase;
+        margin-bottom: 14px;
+    }
+    .section-header p {
+        color: var(--ch600);
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+    .divider {
+        width: 52px; height: 3px;
+        background: var(--g600);
+        border-radius: 2px;
+        margin: 0 auto 22px;
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: var(--r-sm);
+        font-family: var(--ff-body);
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: .01em;
+        cursor: pointer;
+        transition: background var(--ease), border-color var(--ease),
+                    transform var(--ease), box-shadow var(--ease);
+        white-space: nowrap;
+        border: 2px solid transparent;
+    }
+    .btn:focus-visible { outline: 2px solid var(--g500); outline-offset: 3px; }
+
+    .btn-primary {
+        background: var(--g800);
+        color: var(--white);
+        border-color: var(--g800);
+    }
+    .btn-primary:hover {
+        background: var(--g900);
+        border-color: var(--g900);
+        box-shadow: var(--sh-md);
+    }
+    .btn-ghost {
+        background: transparent;
+        color: var(--g800);
+        border-color: var(--g800);
+    }
+    .btn-ghost:hover { background: var(--g800); color: var(--white); }
+
+    /* Hero-specific buttons */
+    .btn-hero-solid {
+        background: var(--white);
+        color: var(--g900);
+        border-color: var(--white);
+        font-size: 1.05rem;
+        padding: 16px 34px;
+    }
+    .btn-hero-solid:hover {
+        background: var(--cr200);
+        border-color: var(--cr200);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 28px rgba(0,0,0,.22);
+    }
+    .btn-hero-outline {
+        background: transparent;
+        color: var(--white);
+        border-color: rgba(255,255,255,.55);
+        font-size: 1.05rem;
+        padding: 16px 34px;
+    }
+    .btn-hero-outline:hover {
+        border-color: var(--white);
+        background: rgba(255,255,255,.1);
+        transform: translateY(-1px);
+    }
+
+    /* Emergency button */
+    .btn-emg {
+        background: var(--g500);
+        color: var(--white);
+        border-color: var(--g500);
+        font-size: 1.1rem;
+        padding: 18px 38px;
+    }
+    .btn-emg:hover {
+        background: var(--g400);
+        border-color: var(--g400);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 28px rgba(58,122,92,.32);
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .site-header {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 100;
+        background: rgba(250,247,240,.96);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--cr300);
+        transition: box-shadow var(--ease);
+    }
+    .site-header.scrolled { box-shadow: var(--sh-md); }
+
+    .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        gap: 20px;
+    }
+
+    .logo { cursor: pointer; line-height: 1; }
+    .logo-name {
+        font-family: var(--ff-display);
+        font-size: 1.28rem;
+        font-weight: 700;
+        color: var(--g900);
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        display: block;
+    }
+    .logo-sub {
+        font-family: var(--ff-body);
+        font-size: .62rem;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--earth600);
+        display: block;
+    }
+
+    .main-nav { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .main-nav a {
+        font-size: .87rem;
+        font-weight: 600;
+        color: var(--ch700);
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        position: relative;
+        transition: color var(--ease);
+    }
+    .main-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -3px; left: 0;
+        width: 0; height: 2px;
+        background: var(--g600);
+        transition: width var(--ease);
+    }
+    .main-nav a:hover { color: var(--g800); }
+    .main-nav a:hover::after { width: 100%; }
+
+    .header-right { display: flex; align-items: center; gap: 14px; }
+    .header-tel {
+        font-family: var(--ff-display);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--g800);
+        letter-spacing: .02em;
+        transition: color var(--ease);
+    }
+    .header-tel:hover { color: var(--g600); }
+
+    /* Mobile toggle */
+    .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+        cursor: pointer;
+    }
+    .nav-toggle span {
+        display: block;
+        width: 24px; height: 2px;
+        background: var(--ch800);
+        border-radius: 2px;
+        transition: all .25s ease;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 72px; left: 0; right: 0;
+        background: var(--cr100);
+        border-bottom: 1px solid var(--cr300);
+        box-shadow: var(--sh-lg);
+        padding: 12px 24px 24px;
+        z-index: 99;
+        flex-direction: column;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+        display: block;
+        padding: 14px 0;
+        font-family: var(--ff-display);
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--ch800);
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--cr300);
+        cursor: pointer;
+        transition: color var(--ease);
+    }
+    .mobile-nav a:last-of-type { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--g700); }
+    .mobile-nav-cta {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 18px;
+    }
+    .mobile-nav-cta .btn { justify-content: center; width: 100%; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        padding-top: 72px;
+        overflow: hidden;
+    }
+
+    /*
+     * HERO BACKGROUND
+     * To swap in a real photo, change the background property below:
+     *   background: linear-gradient(135deg, rgba(23,46,34,.90) 0%, rgba(37,77,58,.80) 100%),
+     *               url('your-photo.jpg') center / cover no-repeat;
+     */
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            150deg,
+            #172e22 0%,
+            #1d3a2c 30%,
+            #254d3a 60%,
+            #1f402e 100%
+        );
+    }
+    /* Subtle grain texture */
+    .hero-bg::after {
+        content: '';
+        position: absolute; inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+        pointer-events: none;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 740px;
+        padding: 88px 0 108px;
+    }
+
+    .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,.09);
+        border: 1px solid rgba(255,255,255,.18);
+        border-radius: 100px;
+        padding: 6px 18px;
+        margin-bottom: 28px;
+        font-size: .78rem;
+        font-weight: 600;
+        color: var(--earth200);
+        letter-spacing: .1em;
+        text-transform: uppercase;
+    }
+    .hero-eyebrow svg {
+        width: 13px; height: 13px;
+        stroke: var(--g300);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .hero h1 {
+        color: var(--white);
+        text-transform: uppercase;
+        margin-bottom: 24px;
+    }
+    .hero h1 .accent { color: var(--g300); }
+
+    .hero-sub {
+        font-size: 1.15rem;
+        color: rgba(255,255,255,.8);
+        max-width: 590px;
+        line-height: 1.72;
+        margin-bottom: 42px;
+    }
+
+    .hero-ctas {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 58px;
+    }
+
+    .trust-row {
+        display: flex;
+        gap: 26px;
+        flex-wrap: wrap;
+    }
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255,255,255,.82);
+        font-size: .92rem;
+        font-weight: 600;
+    }
+    .trust-icon {
+        width: 36px; height: 36px;
+        background: rgba(255,255,255,.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .trust-icon svg {
+        width: 17px; height: 17px;
+        stroke: var(--g300);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .trust-label {
+        font-size: .68rem;
+        font-weight: 600;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.48);
+        display: block;
+        margin-bottom: 1px;
+    }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+    }
+
+    .service-card {
+        background: var(--white);
+        border: 1px solid var(--cr300);
+        border-radius: var(--r-md);
+        padding: 26px 22px;
+        transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+        cursor: default;
+    }
+    .service-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--sh-lg);
+        border-color: var(--g300);
+    }
+
+    .svc-icon {
+        width: 50px; height: 50px;
+        background: var(--g900);
+        border-radius: var(--r-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+    }
+    .svc-icon svg {
+        width: 24px; height: 24px;
+        stroke: var(--g300);
+        fill: none;
+        stroke-width: 1.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .service-card h3 {
+        color: var(--g900);
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    .service-card p {
+        color: var(--ch600);
+        font-size: .95rem;
+        line-height: 1.68;
+    }
+
+    /* ============================================================
+       WHY CHOOSE US
+    ============================================================ */
+    .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .why-card {
+        background: var(--white);
+        border-left: 4px solid var(--g600);
+        border-radius: 0 var(--r-md) var(--r-md) 0;
+        padding: 30px 26px;
+        box-shadow: var(--sh-sm);
+        transition: box-shadow var(--ease), transform var(--ease);
+        cursor: default;
+    }
+    .why-card:hover {
+        box-shadow: var(--sh-md);
+        transform: translateY(-2px);
+    }
+
+    .why-icon {
+        width: 44px; height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+    }
+    .why-icon svg {
+        width: 30px; height: 30px;
+        stroke: var(--g700);
+        fill: none;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .why-card h3 {
+        color: var(--g900);
+        text-transform: uppercase;
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    .why-card p {
+        color: var(--ch600);
+        font-size: .93rem;
+        line-height: 1.68;
+    }
+
+    /* ============================================================
+       REVIEWS
+    ============================================================ */
+    .reviews-meta {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 14px;
+    }
+    .rating-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--white);
+        border: 1px solid var(--cr300);
+        border-radius: 100px;
+        padding: 10px 24px;
+        box-shadow: var(--sh-sm);
+    }
+    .rating-badge .stars {
+        display: flex; gap: 2px;
+    }
+    .rating-badge .stars svg {
+        width: 15px; height: 15px;
+        fill: var(--gold);
+    }
+    .rating-badge strong {
+        font-family: var(--ff-display);
+        font-size: 1.25rem;
+        color: var(--g900);
+    }
+    .rating-badge span {
+        font-size: .84rem;
+        color: var(--ch600);
+    }
+
+    .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .review-card {
+        background: var(--white);
+        border: 1px solid var(--cr300);
+        border-radius: var(--r-md);
+        padding: 30px 26px;
+        box-shadow: var(--sh-sm);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        transition: box-shadow var(--ease), transform var(--ease);
+        cursor: default;
+    }
+    .review-card:hover {
+        box-shadow: var(--sh-md);
+        transform: translateY(-2px);
+    }
+
+    .rev-stars { display: flex; gap: 3px; }
+    .rev-stars svg {
+        width: 17px; height: 17px;
+        fill: var(--gold);
+    }
+
+    .rev-text {
+        font-size: .95rem;
+        color: var(--ch700);
+        line-height: 1.72;
+        font-style: italic;
+        flex: 1;
+    }
+
+    .rev-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-top: 14px;
+        border-top: 1px solid var(--cr300);
+    }
+    .rev-avatar {
+        width: 40px; height: 40px;
+        background: var(--g900);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--ff-display);
+        font-size: .92rem;
+        font-weight: 600;
+        color: var(--g300);
+        letter-spacing: .04em;
+        flex-shrink: 0;
+    }
+    .rev-author-name {
+        display: block;
+        font-size: .93rem;
+        font-weight: 700;
+        color: var(--ch800);
+    }
+    .rev-author-loc {
+        font-size: .78rem;
+        color: var(--ch500);
+    }
+
+    /* ============================================================
+       EMERGENCY BAND
+    ============================================================ */
+    .emergency {
+        background: var(--ch900);
+        padding: 80px 0;
+    }
+    .emergency-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 48px;
+        flex-wrap: wrap;
+    }
+    .emergency-copy { flex: 1; min-width: 280px; }
+
+    .emg-label {
+        display: block;
+        font-size: .73rem;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--g300);
+        margin-bottom: 12px;
+    }
+    .emergency h2 {
+        color: var(--white);
+        text-transform: uppercase;
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        margin-bottom: 14px;
+    }
+    .emergency p {
+        color: rgba(255,255,255,.70);
+        font-size: 1.05rem;
+        line-height: 1.72;
+        max-width: 530px;
+    }
+
+    .open-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(74,153,112,.13);
+        border: 1px solid rgba(74,153,112,.28);
+        border-radius: 100px;
+        padding: 6px 16px;
+        font-size: .78rem;
+        font-weight: 600;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--g300);
+        margin-top: 18px;
+    }
+    .open-dot {
+        width: 7px; height: 7px;
+        border-radius: 50%;
+        background: var(--g300);
+        box-shadow: 0 0 0 3px rgba(106,184,135,.22);
+        animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 0 3px rgba(106,184,135,.22); }
+        50%       { box-shadow: 0 0 0 7px rgba(106,184,135,.07); }
+    }
+
+    /* ============================================================
+       SERVICE AREA
+    ============================================================ */
+    .area-section {
+        background: var(--g900);
+        padding: 80px 0;
+        text-align: center;
+    }
+    .area-section .section-label { color: var(--g300); }
+    .area-section h2 {
+        color: var(--white);
+        text-transform: uppercase;
+        margin-bottom: 14px;
+    }
+    .area-section p {
+        color: rgba(255,255,255,.70);
+        font-size: 1.04rem;
+        max-width: 480px;
+        margin: 0 auto 30px;
+        line-height: 1.7;
+    }
+    .area-tags {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .area-tag {
+        background: rgba(255,255,255,.09);
+        border: 1px solid rgba(255,255,255,.18);
+        border-radius: 100px;
+        padding: 8px 20px;
+        font-size: .9rem;
+        font-weight: 600;
+        color: var(--cr200);
+        letter-spacing: .04em;
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    .contact-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1.55fr;
+        gap: 64px;
+        align-items: start;
+    }
+
+    .contact-info .section-label { text-align: left; display: block; }
+    .contact-info h2 {
+        color: var(--g900);
+        text-transform: uppercase;
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        margin-bottom: 14px;
+    }
+    .contact-info > p {
+        color: var(--ch600);
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 36px;
+    }
+
+    .contact-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+    .contact-row-icon {
+        width: 44px; height: 44px;
+        background: var(--g900);
+        border-radius: var(--r-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .contact-row-icon svg {
+        width: 21px; height: 21px;
+        stroke: var(--g300);
+        fill: none;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .contact-row-label {
+        font-size: .74rem;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--earth600);
+        display: block;
+        margin-bottom: 2px;
+    }
+    .contact-row-val {
+        font-size: 1.08rem;
+        font-weight: 600;
+        color: var(--ch800);
+    }
+    .contact-row-val a { transition: color var(--ease); }
+    .contact-row-val a:hover { color: var(--g700); }
+
+    /* Form */
+    .form-box {
+        background: var(--white);
+        border: 1px solid var(--cr300);
+        border-radius: var(--r-lg);
+        padding: 40px 38px;
+        box-shadow: var(--sh-md);
+    }
+    .form-box-title {
+        font-family: var(--ff-display);
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: var(--g900);
+        text-transform: uppercase;
+        letter-spacing: .02em;
+        margin-bottom: 26px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 14px; }
+
+    .form-group label {
+        display: block;
+        font-size: .78rem;
+        font-weight: 700;
+        letter-spacing: .09em;
+        text-transform: uppercase;
+        color: var(--ch600);
+        margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1.5px solid var(--cr300);
+        border-radius: var(--r-sm);
+        font-family: var(--ff-body);
+        font-size: 1rem;
+        color: var(--ch800);
+        background: var(--cr100);
+        outline: none;
+        transition: border-color var(--ease), box-shadow var(--ease), background var(--ease);
+        appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--ch500); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: var(--g600);
+        box-shadow: 0 0 0 3px rgba(45,96,72,.11);
+        background: var(--white);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6b6b' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        padding-right: 38px;
+    }
+
+    .form-submit .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 16px;
+        font-size: 1.05rem;
+        background: var(--g800);
+        color: var(--white);
+        border-color: var(--g800);
+        border-radius: var(--r-sm);
+        margin-top: 4px;
+    }
+    .form-submit .btn:hover {
+        background: var(--g900);
+        border-color: var(--g900);
+        box-shadow: var(--sh-md);
+    }
+    .form-submit .btn:disabled {
+        background: var(--g500);
+        border-color: var(--g500);
+        cursor: not-allowed;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+        background: var(--ch900);
+        color: rgba(255,255,255,.60);
+        padding: 60px 0 40px;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.35fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 48px;
+    }
+
+    .footer-brand .logo-name { color: var(--white); font-size: 1.35rem; }
+    .footer-brand .logo-sub { color: var(--earth400); }
+    .footer-brand p {
+        margin-top: 14px;
+        font-size: .9rem;
+        line-height: 1.7;
+        max-width: 255px;
+    }
+    .footer-tel {
+        display: inline-block;
+        margin-top: 16px;
+        font-family: var(--ff-display);
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--g300);
+        letter-spacing: .02em;
+        transition: color var(--ease);
+    }
+    .footer-tel:hover { color: var(--g400); }
+
+    .footer-col h4 {
+        font-size: .73rem;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul li a {
+        font-size: .9rem;
+        color: rgba(255,255,255,.56);
+        transition: color var(--ease);
+        cursor: pointer;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,.09);
+        padding-top: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .footer-bottom p { font-size: .84rem; }
+    .footer-bottom-area { font-size: .84rem; color: rgba(255,255,255,.38); }
+
+    .footer-email {
+        font-size: .95rem;
+        margin-top: 6px;
+        display: inline-block;
+    }
+    .footer-license {
+        margin-top: 12px;
+        font-size: .78rem;
+        color: rgba(255,255,255,.38);
+        letter-spacing: .04em;
+    }
+    .footer-col ul + h4 { margin-top: 22px; }
+    .area-section .divider {
+        background: rgba(106,184,135,.45);
+        margin-top: 10px;
+    }
+
+    /* ============================================================
+       STICKY MOBILE CALL BAR
+    ============================================================ */
+    .mobile-call {
+        display: none;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        z-index: 200;
+        background: var(--g800);
+        padding: 12px 24px;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+        box-shadow: 0 -3px 18px rgba(0,0,0,.22);
+    }
+    .mobile-call a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: var(--white);
+        font-family: var(--ff-display);
+        font-size: 1.18rem;
+        font-weight: 600;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        min-height: 44px;
+        cursor: pointer;
+    }
+    .mobile-call a svg {
+        width: 19px; height: 19px;
+        stroke: var(--white);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    /* ============================================================
+       TEAM
+    ============================================================ */
+    .team-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+    .team-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: var(--r-lg);
+        box-shadow: var(--sh-lg);
+    }
+    .team-copy-intro {
+        color: var(--ch600);
+        font-size: 1.05rem;
+        line-height: 1.72;
+        margin-bottom: 28px;
+    }
+    .team-members {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .team-member {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: var(--cr100);
+        border: 1px solid var(--cr300);
+        border-radius: var(--r-md);
+        padding: 15px 18px;
+        box-shadow: var(--sh-sm);
+        transition: box-shadow var(--ease), transform var(--ease);
+    }
+    .team-member:hover {
+        box-shadow: var(--sh-md);
+        transform: translateY(-1px);
+    }
+    .team-avatar {
+        width: 42px; height: 42px;
+        background: var(--g900);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .team-avatar svg {
+        width: 20px; height: 20px;
+        stroke: var(--g300);
+        fill: none;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .team-member-name {
+        display: block;
+        font-family: var(--ff-display);
+        font-size: .95rem;
+        font-weight: 600;
+        color: var(--g900);
+        text-transform: uppercase;
+        letter-spacing: .03em;
+        margin-bottom: 2px;
+    }
+    .team-member-role {
+        font-size: .83rem;
+        color: var(--ch600);
+        font-style: italic;
+    }
+    .team-placeholder-note {
+        margin-top: 16px;
+        font-size: .78rem;
+        color: var(--ch500);
+        font-style: italic;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+        .services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .why-grid      { grid-template-columns: repeat(2, 1fr); }
+        .reviews-grid  { grid-template-columns: repeat(2, 1fr); }
+        .contact-wrap  { grid-template-columns: 1fr; gap: 40px; }
+        .footer-grid   { grid-template-columns: 1fr 1fr; gap: 36px; }
+        .emergency-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 768px) {
+        .section { padding: 72px 0; }
+
+        /* Hide desktop nav, show toggle + mobile bar */
+        .main-nav          { display: none; }
+        .header-tel        { display: none; }
+        .header-right .btn { display: none; }
+        .nav-toggle        { display: flex; }
+        .mobile-call       { display: block; }
+        body               { padding-bottom: 66px; }
+
+        .services-grid { grid-template-columns: 1fr; }
+        .why-grid      { grid-template-columns: repeat(2, 1fr); }
+        .reviews-grid  { grid-template-columns: 1fr; }
+        .footer-grid   { grid-template-columns: 1fr; gap: 28px; }
+        .form-row      { grid-template-columns: 1fr; }
+
+        .hero-ctas { flex-direction: column; }
+        .btn-hero-solid,
+        .btn-hero-outline { width: 100%; justify-content: center; }
+
+        .team-layout { grid-template-columns: 1fr; gap: 32px; }
+
+        .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+        .why-grid      { grid-template-columns: 1fr; }
+        .trust-row     { flex-direction: column; gap: 14px; }
+        .form-box      { padding: 28px 22px; }
+    }
+
+    /* ============================================================
+       ACCESSIBILITY
+    ============================================================ */
+    :focus-visible { outline: 2px solid var(--g500); outline-offset: 3px; }
+
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: .01ms !important;
+            transition-duration: .01ms !important;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<!-- ===================================================
+     HEADER
+==================================================== -->
+<header class="site-header" id="site-header">
+    <div class="container">
+        <div class="header-inner">
+
+            <a class="logo" href="#hero" aria-label="Barton's Tree Care — Home">
+                <span class="logo-name">Barton's Tree Care</span>
+                <span class="logo-sub">Tree Service</span>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <ul class="main-nav" role="list">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#why">Why Choose Us</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <a class="header-tel" href="tel:+14433063037" aria-label="Call (443) 306-3037">(443) 306-3037</a>
+                <a class="btn btn-primary" href="tel:+14433063037">Call Now</a>
+            </div>
+
+            <button class="nav-toggle" id="nav-toggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
+
+        </div>
+    </div>
+</header>
+
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="#services">Services</a>
+    <a href="#why">Why Choose Us</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <div class="mobile-nav-cta">
+        <a class="btn btn-primary" href="tel:+14433063037">Call (443) 306-3037</a>
+        <a class="btn btn-ghost" href="#contact">Request a Quote</a>
+    </div>
+</nav>
+
+
+<!-- ===================================================
+     HERO
+==================================================== -->
+<section class="hero" id="hero" aria-labelledby="hero-h1">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container">
+        <div class="hero-content">
+
+            <div class="hero-eyebrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M17 8C8 10 5.9 16.17 3.82 19.82A2 2 0 0 0 5.36 22.5c1.07-.73 2.31-1.07 3.62-.9C12.6 22 15 19.86 15 17c0-1.66-1.34-3-3-3s-3 1.34-3 3"/>
+                </svg>
+                Licensed Tree Care &middot; Est. 1989
+            </div>
+
+            <h1 id="hero-h1">
+                Licensed Tree Care<br>
+                <span class="accent">Serving Anne Arundel County Since 1989</span>
+            </h1>
+
+            <p class="hero-sub">
+                Barton's Tree Care provides tree removal, pruning, storm-damage remediation, stump grinding, lot clearing, and risk assessments for homeowners throughout Anne Arundel County.
+            </p>
+
+            <div class="hero-ctas">
+                <a class="btn btn-hero-solid" href="tel:+14433063037" aria-label="Call Barton's Tree Care now">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Call Now
+                </a>
+                <a class="btn btn-hero-outline" href="#contact">Request a Free Quote</a>
+            </div>
+
+            <div class="trust-row" role="list" aria-label="Trust highlights">
+
+                <div class="trust-item" role="listitem">
+                    <div class="trust-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="trust-label">Maryland Tree Expert</span>
+                        License #133 &amp; #1883
+                    </div>
+                </div>
+
+                <div class="trust-item" role="listitem">
+                    <div class="trust-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="trust-label">Established</span>
+                        Since 1989
+                    </div>
+                </div>
+
+                <div class="trust-item" role="listitem">
+                    <div class="trust-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="trust-label">Service Area</span>
+                        Anne Arundel County
+                    </div>
+                </div>
+
+                <div class="trust-item" role="listitem">
+                    <div class="trust-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="trust-label">Availability</span>
+                        Open 24 Hours
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     SERVICES
+==================================================== -->
+<section class="section" id="services" aria-labelledby="services-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">What We Do</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="services-h2">Tree Services</h2>
+            <p>From complete removals and storm damage remediation to pruning, stump grinding, lot clearing, and risk assessments, Barton's Tree Care handles tree work with licensed expertise and clean execution.</p>
+        </div>
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22V12M8 6L3 3l3 7H3l5 5h3M16 6l5-3-3 7h3l-5 5h-3"/>
+                    </svg>
+                </div>
+                <h3>Tree Removal</h3>
+                <p>Complete tree removal for hazardous, unwanted, storm-damaged, or difficult trees.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9"/>
+                        <polyline points="13 11 9 17 15 17 11 23"/>
+                    </svg>
+                </div>
+                <h3>Storm Damaged Tree Remediation</h3>
+                <p>Experienced remediation for storm-damaged trees that have fallen on structures or are creating a safety risk.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22V14M12 14c0-4-6-6-8-3s1 7 5 7h6c4 0 7-4 5-7s-8-1-8 3"/>
+                        <path d="M8 14c-2-1-3-3-2-5"/>
+                        <path d="M16 14c2-1 3-3 2-5"/>
+                    </svg>
+                </div>
+                <h3>Pruning</h3>
+                <p>All phases of tree pruning with an emphasis on preserving the health, safety, and structure of your trees.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="19" r="2"/>
+                        <path d="M12 17V8"/>
+                        <path d="M5 8h14"/>
+                        <path d="M7 4l-2 4h14l-2-4"/>
+                    </svg>
+                </div>
+                <h3>Stump Grinding</h3>
+                <p>Expert below-grade stump and root removal to properly clear the area after tree work.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </div>
+                <h3>Lot Clearing</h3>
+                <p>Selective clearing that preserves healthy mature trees when possible. Full lot clearing also available.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                </div>
+                <h3>Risk Assessment</h3>
+                <p>Free tree risk assessments to help identify hazardous trees before they become bigger problems.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M12 12v10M8 18h8"/>
+                    </svg>
+                </div>
+                <h3>Planting</h3>
+                <p>Large and small-scale planting projects for residential properties and landscape improvements.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                </div>
+                <h3>Construction Management Plans</h3>
+                <p>Detailed planning and implementation of tree management during all phases of construction.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22V12M9 5C9 5 4 7 4 12h16c0-5-5-7-5-7"/>
+                        <path d="M7 9c0-2 2-4 5-4s5 2 5 4"/>
+                    </svg>
+                </div>
+                <h3>Fertilization &amp; Pest Control</h3>
+                <p>Tree health support through fertilization and pest-control services.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 3v7a6 6 0 0 0 6 6 6 6 0 0 0 6-6V3"/>
+                        <line x1="4" y1="21" x2="20" y2="21"/>
+                    </svg>
+                </div>
+                <h3>Cabling &amp; Bracing</h3>
+                <p>Structural support for trees that may need reinforcement to improve safety and stability.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     WHY CHOOSE US
+==================================================== -->
+<section class="section section-alt" id="why" aria-labelledby="why-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Why Barton's?</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="why-h2">How We Work</h2>
+            <p>What our customers say — and what we hold ourselves to on every job.</p>
+        </div>
+        <div class="why-grid">
+
+            <div class="why-card">
+                <div class="why-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                </div>
+                <h3>Licensed Maryland Tree Experts</h3>
+                <p>Barton's Tree Care is licensed in Maryland under Tree Expert License #133 and #1883. Professional credentials, not just experience.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                </div>
+                <h3>Established Since 1989</h3>
+                <p>Serving homeowners throughout Anne Arundel County since 1989. Over 35 years of consistent, local work is the track record that matters.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </div>
+                <h3>Leaves Properties Clean</h3>
+                <p>Our customers say we leave their property cleaner than when we arrived. Debris removal and site cleanup are part of the job — not an add-on.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                </div>
+                <h3>Communicates Throughout</h3>
+                <p>We keep you informed from the first call to job completion. No surprises, no mystery — you know what's happening with your property at every step.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <line x1="12" y1="1" x2="12" y2="23"/>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                </div>
+                <h3>Fair, Honest Pricing</h3>
+                <p>We quote the job and do the job. Our customers mention fair pricing specifically — we work to give you an honest number and stick to it.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="17 1 21 5 17 9"/>
+                        <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                        <polyline points="7 23 3 19 7 15"/>
+                        <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                    </svg>
+                </div>
+                <h3>Trusted for Repeat Work</h3>
+                <p>Customers come back to us. When they need more trees handled — or their neighbors see the work — they call Barton's again. That's the standard we hold ourselves to.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     MEET THE TEAM
+==================================================== -->
+<section class="section" id="team" aria-labelledby="team-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Meet the Team</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="team-h2">The People Behind Barton's Tree Care</h2>
+            <p>Barton's Tree Care is a local, family-run tree service built on decades of experience, licensed expertise, and honest work throughout Anne Arundel County.</p>
+        </div>
+        <div class="team-layout">
+
+            <div>
+                <img src="meet.the.team.jpg"
+                     alt="Barton's Tree Care team"
+                     class="team-img"
+                     loading="lazy">
+            </div>
+
+            <div>
+                <p class="team-copy-intro">The crew at Barton's Tree Care brings the same care and professionalism to every job — whether it's a single tree removal or a full lot clearing. Licensed, experienced, and locally based in Crofton, MD.</p>
+                <div class="team-members">
+
+                    <div class="team-member">
+                        <div class="team-avatar" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="4"/>
+                                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="team-member-name">Ed Barton</span>
+                            <span class="team-member-role">Owner &middot; Maryland Tree Expert</span>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="team-avatar" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="4"/>
+                                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="team-member-name">[Insert Name]</span>
+                            <span class="team-member-role">Tree Care Specialist</span>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="team-avatar" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="4"/>
+                                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="team-member-name">[Insert Name]</span>
+                            <span class="team-member-role">Crew Member</span>
+                        </div>
+                    </div>
+
+                </div>
+                <p class="team-placeholder-note">Names and roles will be updated when provided.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     REVIEWS
+==================================================== -->
+<section class="section" id="reviews" aria-labelledby="reviews-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Customer Reviews</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="reviews-h2">What Customers Say</h2>
+            <div class="reviews-meta">
+                <div class="rating-badge" aria-label="5.0 stars on Google">
+                    <div class="stars" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <strong>5.0</strong>
+                    <span>on Google</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews-grid">
+
+            <article class="review-card" aria-label="Review by Dan Bolen">
+                <div class="rev-stars" aria-label="5 out of 5 stars">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="rev-text">"Great company. They worked on 4 different trees at my house in Severna Park. Did a great job. Professional, extremely knowledgeable, and left the property cleaner than when they came. We have used them multiple times and will call them again. Could not recommend more."</p>
+                <div class="rev-author">
+                    <div class="rev-avatar" aria-hidden="true">DB</div>
+                    <div>
+                        <span class="rev-author-name">Dan Bolen</span>
+                        <span class="rev-author-loc">Severna Park, MD</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="review-card" aria-label="Review by John McLanigan">
+                <div class="rev-stars" aria-label="5 out of 5 stars">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="rev-text">"Barton's was contacted by my insurance company to remove a storm-damaged tree and did an excellent job. While they were here, I asked about removing several more trees, was quoted a great price, and the job was completed the same day. I was kept up to date throughout the entire process. Very satisfied and highly recommend them."</p>
+                <div class="rev-author">
+                    <div class="rev-avatar" aria-hidden="true">JM</div>
+                    <div>
+                        <span class="rev-author-name">John McLanigan</span>
+                        <span class="rev-author-loc">Anne Arundel County, MD</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="review-card" aria-label="Review by R.P. Murphy">
+                <div class="rev-stars" aria-label="5 out of 5 stars">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="rev-text">"Ed and Ed Jr. from Barton's did an incredible job taking down a huge Tulip Poplar tree about 6 stories high. It was in a corner against a fence bordering 3 properties, but they expertly took it down and completed the work in a day. I would definitely use them again."</p>
+                <div class="rev-author">
+                    <div class="rev-avatar" aria-hidden="true">RM</div>
+                    <div>
+                        <span class="rev-author-name">R.P. Murphy</span>
+                        <span class="rev-author-loc">Anne Arundel County, MD</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     EMERGENCY BAND
+==================================================== -->
+<section class="emergency" aria-labelledby="emg-h2">
+    <div class="container">
+        <div class="emergency-inner">
+
+            <div class="emergency-copy">
+                <span class="emg-label">24-Hour Emergency Service</span>
+                <h2 id="emg-h2">Storm-Damaged Tree?<br>Call Barton's Tree Care.</h2>
+                <p>When a tree comes down or creates a safety risk, fast action matters. Barton's Tree Care has experience remediating storm-damaged trees that have fallen on structures or are creating hazardous conditions.</p>
+                <div class="open-badge" aria-label="Available 24 hours">
+                    <span class="open-dot" aria-hidden="true"></span>
+                    Open 24 Hours — Available Now
+                </div>
+            </div>
+
+            <div>
+                <a class="btn btn-emg" href="tel:+14433063037" aria-label="Call Barton's Tree Care for emergency service">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Call (443) 306-3037
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     SERVICE AREA
+==================================================== -->
+<section class="area-section" id="service-area" aria-labelledby="area-h2">
+    <div class="container">
+        <span class="section-label">Where We Work</span>
+        <div class="divider" aria-hidden="true"></div>
+        <h2 id="area-h2">Serving Anne Arundel County</h2>
+        <p>Located in Crofton, Barton's Tree Care serves homeowners throughout Anne Arundel County and nearby surrounding communities.</p>
+        <div class="area-tags" role="list" aria-label="Service locations">
+            <span class="area-tag" role="listitem">Crofton</span>
+            <span class="area-tag" role="listitem">Annapolis</span>
+            <span class="area-tag" role="listitem">Severna Park</span>
+            <span class="area-tag" role="listitem">Arnold</span>
+            <span class="area-tag" role="listitem">Edgewater</span>
+            <span class="area-tag" role="listitem">Davidsonville</span>
+            <span class="area-tag" role="listitem">Gambrills</span>
+            <span class="area-tag" role="listitem">Odenton</span>
+            <span class="area-tag" role="listitem">Millersville</span>
+            <span class="area-tag" role="listitem">Pasadena</span>
+            <span class="area-tag" role="listitem">Glen Burnie</span>
+            <span class="area-tag" role="listitem">Crownsville</span>
+            <span class="area-tag" role="listitem">Severn</span>
+            <span class="area-tag" role="listitem">Riva</span>
+            <span class="area-tag" role="listitem">Surrounding Communities</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     CONTACT / QUOTE
+==================================================== -->
+<section class="section section-alt" id="contact" aria-labelledby="contact-h2">
+    <div class="container">
+        <div class="contact-wrap">
+
+            <div class="contact-info">
+                <span class="section-label">Get in Touch</span>
+                <h2 id="contact-h2">Request Tree Service</h2>
+                <p>Call now or send a quick message to get started. We'll follow up promptly to discuss your project and provide a free quote.</p>
+
+                <div class="contact-row">
+                    <div class="contact-row-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="contact-row-label">Phone</span>
+                        <div class="contact-row-val"><a href="tel:+14433063037">(443) 306-3037</a></div>
+                    </div>
+                </div>
+
+                <div class="contact-row">
+                    <div class="contact-row-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="contact-row-label">Email</span>
+                        <div class="contact-row-val"><a href="mailto:bartonstree@verizon.net">bartonstree@verizon.net</a></div>
+                    </div>
+                </div>
+
+                <div class="contact-row">
+                    <div class="contact-row-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="contact-row-label">Hours</span>
+                        <div class="contact-row-val"><span>Open 24 Hours</span></div>
+                    </div>
+                </div>
+
+                <div class="contact-row">
+                    <div class="contact-row-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="contact-row-label">Location</span>
+                        <div class="contact-row-val"><span>Crofton, MD 21114</span></div>
+                    </div>
+                </div>
+
+                <div class="contact-row">
+                    <div class="contact-row-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="contact-row-label">Service Area</span>
+                        <div class="contact-row-val"><span>Anne Arundel County &amp; Surrounding Areas</span></div>
+                    </div>
+                </div>
+
+                <div class="contact-row">
+                    <div class="contact-row-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="contact-row-label">License</span>
+                        <div class="contact-row-val"><span>Maryland Tree Expert #133 &amp; #1883</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-box">
+                <div class="form-box-title">Request a Free Quote</div>
+                <form id="quote-form" novalidate aria-label="Free quote request form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="f-name">Name</label>
+                            <input type="text" id="f-name" name="name" placeholder="Your name" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="f-phone">Phone</label>
+                            <input type="tel" id="f-phone" name="phone" placeholder="(443) 000-0000" autocomplete="tel" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="f-email">Email</label>
+                        <input type="email" id="f-email" name="email" placeholder="your@email.com" autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="f-service">Service Needed</label>
+                        <select id="f-service" name="service" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="tree-removal">Tree Removal</option>
+                            <option value="storm-remediation">Storm Damaged Tree Remediation</option>
+                            <option value="pruning">Pruning</option>
+                            <option value="stump-grinding">Stump Grinding</option>
+                            <option value="lot-clearing">Lot Clearing</option>
+                            <option value="risk-assessment">Risk Assessment</option>
+                            <option value="planting">Planting</option>
+                            <option value="construction-mgmt">Construction Management Plans</option>
+                            <option value="fertilization-pest">Fertilization and Pest Control</option>
+                            <option value="cabling-bracing">Cabling and Bracing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="f-message">Message</label>
+                        <textarea id="f-message" name="message" placeholder="Tell us a little about your situation — location, tree size, what's happening..."></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn">Request Quote</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     FOOTER
+==================================================== -->
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-name">Barton's Tree Care</span>
+                    <span class="logo-sub">Tree Service · Est. 1989</span>
+                </div>
+                <p>Licensed tree care serving homeowners throughout Anne Arundel County since 1989. Located in Crofton, MD.</p>
+                <a class="footer-tel" href="tel:+14433063037" aria-label="Call (443) 306-3037">(443) 306-3037</a>
+                <a class="footer-tel footer-email" href="mailto:bartonstree@verizon.net" aria-label="Email bartonstree@verizon.net">bartonstree@verizon.net</a>
+                <p class="footer-license">MD Tree Expert License #133 &amp; #1883</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul role="list">
+                    <li><a href="#services">Tree Removal</a></li>
+                    <li><a href="#services">Storm Damage Remediation</a></li>
+                    <li><a href="#services">Pruning</a></li>
+                    <li><a href="#services">Stump Grinding</a></li>
+                    <li><a href="#services">Lot Clearing</a></li>
+                    <li><a href="#services">Risk Assessment</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul role="list">
+                    <li><a href="#why">Why Choose Us</a></li>
+                    <li><a href="#reviews">Customer Reviews</a></li>
+                    <li><a href="#contact">Request a Quote</a></li>
+                    <li><a href="tel:+14433063037">Call Now</a></li>
+                </ul>
+                <h4>Service Area</h4>
+                <ul role="list">
+                    <li><a href="#contact">Crofton &amp; Gambrills</a></li>
+                    <li><a href="#contact">Annapolis &amp; Edgewater</a></li>
+                    <li><a href="#contact">Severna Park &amp; Arnold</a></li>
+                    <li><a href="#contact">Anne Arundel County</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Barton's Tree Care. All rights reserved. &nbsp;·&nbsp; Crofton, MD 21114</p>
+            <p class="footer-bottom-area">Serving Anne Arundel County Since 1989</p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ===================================================
+     STICKY MOBILE CALL BAR
+==================================================== -->
+<div class="mobile-call" role="complementary" aria-label="Quick call button">
+    <a href="tel:+14433063037" aria-label="Call Barton's Tree Care at (443) 306-3037">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Call (443) 306-3037
+    </a>
+</div>
+
+
+<!-- ===================================================
+     JAVASCRIPT
+==================================================== -->
+<script>
+(function () {
+    'use strict';
+
+    // Sticky header shadow on scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
+
+    // Mobile nav toggle
+    const toggle   = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    function closeNav() {
+        mobileNav.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+        const willOpen = !mobileNav.classList.contains('open');
+        if (willOpen) {
+            mobileNav.classList.add('open');
+            toggle.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        } else {
+            closeNav();
+        }
+    });
+
+    // Close on any nav link click
+    mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNav));
+
+    // Close on outside click
+    document.addEventListener('click', e => {
+        if (mobileNav.classList.contains('open') &&
+            !mobileNav.contains(e.target) &&
+            !toggle.contains(e.target)) {
+            closeNav();
+        }
+    });
+
+    // Smooth-scroll with header offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const id = this.getAttribute('href');
+            if (id === '#') return;
+            const target = document.querySelector(id);
+            if (!target) return;
+            e.preventDefault();
+            const offset = header.offsetHeight + 16;
+            window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+        });
+    });
+
+    // Contact form — visual-only confirmation (no backend)
+    const form = document.getElementById('quote-form');
+    if (form) {
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const btn = form.querySelector('[type="submit"]');
+            btn.textContent = 'Message Sent';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.textContent = 'Request Quote';
+                btn.disabled = false;
+                form.reset();
+            }, 3500);
+        });
+    }
+})();
+</script>
+
+</body>
+</html>
