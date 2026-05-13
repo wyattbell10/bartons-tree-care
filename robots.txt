@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bartonstreecare.com/sitemap.xml
