@@ -6,6 +6,9 @@
     <title>Barton's Tree Care | Tree Service in Maryland</title>
     <meta name="description" content="Licensed tree care serving Maryland and surrounding areas from Crofton, MD. Barton's Tree Care provides tree removal, pruning, storm damage remediation, stump grinding, lot clearing, and risk assessments. Call (443) 306-3037 or (410) 710-0164.">
 
+    <link rel="icon" type="image/png" sizes="32x32" href="bartons_logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="bartons_logo.png">
+    <link rel="apple-touch-icon" href="bartons_logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -231,7 +234,9 @@
         gap: 20px;
     }
 
-    .logo { cursor: pointer; line-height: 1; }
+    .logo { cursor: pointer; line-height: 1; display: flex; align-items: center; gap: 10px; }
+    .logo-img { height: 36px; width: auto; display: block; flex-shrink: 0; }
+    .footer-brand .logo-img { height: 38px; opacity: .82; }
     .logo-name {
         font-family: var(--ff-display);
         font-size: 1.28rem;
@@ -1251,8 +1256,11 @@
         <div class="header-inner">
 
             <a class="logo" href="#hero" aria-label="Barton's Tree Care — Home">
-                <span class="logo-name">Barton's Tree Care</span>
-                <span class="logo-sub">Tree Service</span>
+                <img src="bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
+                <div>
+                    <span class="logo-name">Barton's Tree Care</span>
+                    <span class="logo-sub">Tree Service</span>
+                </div>
             </a>
 
             <nav aria-label="Main navigation">
@@ -1991,8 +1999,11 @@
 
             <div class="footer-brand">
                 <div class="logo">
-                    <span class="logo-name">Barton's Tree Care</span>
-                    <span class="logo-sub">Tree Service · Est. 1989</span>
+                    <img src="bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
+                    <div>
+                        <span class="logo-name">Barton's Tree Care</span>
+                        <span class="logo-sub">Tree Service · Est. 1989</span>
+                    </div>
                 </div>
                 <p>Licensed tree care serving homeowners throughout Maryland since 1989. Located in Crofton, MD.</p>
                 <a class="footer-tel" href="tel:+14433063037" aria-label="Call (443) 306-3037">(443) 306-3037</a>
