@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Pruning in Maryland | Barton's Tree Care</title>
+    <meta name="description" content="Professional tree pruning in Maryland. Barton's Tree Care handles all phases of pruning with licensed arborist oversight — deadwood removal, crown thinning, structural pruning. Call (443) 306-3037.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/bartons_logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logos/bartons_logo.png">
+    <link rel="apple-touch-icon" href="assets/logos/bartons_logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+        --g900: #172e22;
+        --g800: #1d3a2c;
+        --g700: #254d3a;
+        --g600: #2d6048;
+        --g500: #3a7a5c;
+        --g400: #4e9970;
+        --g300: #6ab887;
+        --g200: #a3d4b5;
+
+        --cr100: #faf7f0;
+        --cr200: #f2edd8;
+        --cr300: #e6dfc8;
+
+        --ch900: #181818;
+        --ch800: #242424;
+        --ch700: #333333;
+        --ch600: #4d4d4d;
+        --ch500: #6b6b6b;
+
+        --earth600: #7a5c3a;
+        --earth400: #b08a60;
+        --earth200: #d4b896;
+
+        --gold: #d4941c;
+        --white: #ffffff;
+
+        --ff-display: 'Oswald', sans-serif;
+        --ff-body: 'Source Sans 3', sans-serif;
+
+        --r-sm: 6px;
+        --r-md: 12px;
+        --r-lg: 20px;
+
+        --sh-sm: 0 1px 4px rgba(23,46,34,.07);
+        --sh-md: 0 4px 18px rgba(23,46,34,.10);
+        --sh-lg: 0 8px 36px rgba(23,46,34,.14);
+
+        --ease: .2s ease;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: var(--ff-body);
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--ch800);
+        background: var(--cr100);
+        overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    .sr-only {
+        position: absolute; width: 1px; height: 1px; padding: 0;
+        margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+        white-space: nowrap; border-width: 0;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    h1, h2, h3, h4 {
+        font-family: var(--ff-display);
+        font-weight: 600;
+        line-height: 1.12;
+        letter-spacing: .02em;
+    }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700; }
+    h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
+
+    /* ============================================================
+       LAYOUT HELPERS
+    ============================================================ */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 88px 0; }
+    .section-alt { background: var(--cr200); }
+
+    .section-header {
+        text-align: center;
+        max-width: 640px;
+        margin: 0 auto 56px;
+    }
+    .section-label {
+        display: inline-block;
+        font-size: .74rem;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--earth600);
+        margin-bottom: 10px;
+    }
+    .section-header h2 {
+        color: var(--g900);
+        text-transform: uppercase;
+        margin-bottom: 14px;
+    }
+    .section-header p {
+        color: var(--ch600);
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+    .divider {
+        width: 52px; height: 3px;
+        background: var(--g600);
+        border-radius: 2px;
+        margin: 0 auto 22px;
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: var(--r-sm);
+        font-family: var(--ff-body);
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: .01em;
+        cursor: pointer;
+        transition: background var(--ease), border-color var(--ease),
+                    transform var(--ease), box-shadow var(--ease);
+        white-space: nowrap;
+        border: 2px solid transparent;
+    }
+    .btn:focus-visible { outline: 2px solid var(--g500); outline-offset: 3px; }
+
+    .btn-primary {
+        background: var(--g800);
+        color: var(--white);
+        border-color: var(--g800);
+    }
+    .btn-primary:hover {
+        background: var(--g900);
+        border-color: var(--g900);
+        box-shadow: var(--sh-md);
+    }
+    .btn-ghost {
+        background: transparent;
+        color: var(--g800);
+        border-color: var(--g800);
+    }
+    .btn-ghost:hover { background: var(--g800); color: var(--white); }
+
+    .btn-hero-solid {
+        background: var(--white);
+        color: var(--g900);
+        border-color: var(--white);
+        font-size: 1.05rem;
+        padding: 16px 34px;
+    }
+    .btn-hero-solid:hover {
+        background: var(--cr200);
+        border-color: var(--cr200);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 28px rgba(0,0,0,.22);
+    }
+    .btn-hero-outline {
+        background: transparent;
+        color: var(--white);
+        border-color: rgba(255,255,255,.55);
+        font-size: 1.05rem;
+        padding: 16px 34px;
+    }
+    .btn-hero-outline:hover {
+        border-color: var(--white);
+        background: rgba(255,255,255,.1);
+        transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .site-header {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 100;
+        background: rgba(250,247,240,.96);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--cr300);
+        transition: box-shadow var(--ease);
+    }
+    .site-header.scrolled { box-shadow: var(--sh-md); }
+
+    .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        gap: 20px;
+    }
+
+    .logo { cursor: pointer; line-height: 1; display: flex; align-items: center; gap: 10px; }
+    .logo-img { height: 36px; width: auto; display: block; flex-shrink: 0; }
+    .logo-name {
+        font-family: var(--ff-display);
+        font-size: 1.28rem;
+        font-weight: 700;
+        color: var(--g900);
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        display: block;
+    }
+    .logo-sub {
+        font-family: var(--ff-body);
+        font-size: .62rem;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--earth600);
+        display: block;
+    }
+
+    .main-nav { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .main-nav a {
+        font-size: .87rem;
+        font-weight: 600;
+        color: var(--ch700);
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        position: relative;
+        transition: color var(--ease);
+    }
+    .main-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -3px; left: 0;
+        width: 0; height: 2px;
+        background: var(--g600);
+        transition: width var(--ease);
+    }
+    .main-nav a:hover { color: var(--g800); }
+    .main-nav a:hover::after { width: 100%; }
+
+    .header-right { display: flex; align-items: center; gap: 14px; }
+    .header-tel {
+        font-family: var(--ff-display);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--g800);
+        letter-spacing: .02em;
+        transition: color var(--ease);
+    }
+    .header-tel:hover { color: var(--g600); }
+
+    .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+        cursor: pointer;
+    }
+    .nav-toggle span {
+        display: block;
+        width: 24px; height: 2px;
+        background: var(--ch800);
+        border-radius: 2px;
+        transition: all .25s ease;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 72px; left: 0; right: 0;
+        background: var(--cr100);
+        border-bottom: 1px solid var(--cr300);
+        box-shadow: var(--sh-lg);
+        padding: 12px 24px 24px;
+        z-index: 99;
+        flex-direction: column;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+        display: block;
+        padding: 14px 0;
+        font-family: var(--ff-display);
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--ch800);
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--cr300);
+        cursor: pointer;
+        transition: color var(--ease);
+    }
+    .mobile-nav a:last-of-type { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--g700); }
+    .mobile-nav-cta {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 18px;
+    }
+    .mobile-nav-cta .btn { justify-content: center; width: 100%; }
+
+    /* ============================================================
+       PAGE HERO (compact)
+    ============================================================ */
+    .page-hero {
+        position: relative;
+        min-height: 460px;
+        display: flex;
+        align-items: center;
+        padding-top: 72px;
+        overflow: hidden;
+    }
+    .page-hero-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            150deg,
+            #172e22 0%,
+            #1d3a2c 30%,
+            #254d3a 60%,
+            #1f402e 100%
+        );
+    }
+    .page-hero-bg::after {
+        content: '';
+        position: absolute; inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+        pointer-events: none;
+    }
+    .page-hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 72px 0 80px;
+        max-width: 760px;
+    }
+    .page-hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,.09);
+        border: 1px solid rgba(255,255,255,.18);
+        border-radius: 100px;
+        padding: 6px 18px;
+        margin-bottom: 24px;
+        font-size: .78rem;
+        font-weight: 600;
+        color: var(--earth200);
+        letter-spacing: .1em;
+        text-transform: uppercase;
+    }
+    .page-hero-eyebrow svg {
+        width: 13px; height: 13px;
+        stroke: var(--g300);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .page-hero h1 {
+        color: var(--white);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+    .page-hero h1 .accent { color: var(--g300); }
+    .page-hero-sub {
+        font-size: 1.12rem;
+        color: rgba(255,255,255,.76);
+        max-width: 580px;
+        line-height: 1.72;
+        margin-bottom: 32px;
+    }
+    .page-hero-ctas {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       SERVICE INTRO
+    ============================================================ */
+    .service-intro {
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .service-intro p {
+        font-size: 1.1rem;
+        color: var(--ch600);
+        line-height: 1.78;
+    }
+
+    /* ============================================================
+       REASONS GRID
+    ============================================================ */
+    .reasons-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .reason-card {
+        background: var(--white);
+        border-radius: var(--r-md);
+        padding: 32px 28px;
+        box-shadow: var(--sh-sm);
+        border-left: 4px solid var(--g500);
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    .reason-card-icon {
+        width: 48px; height: 48px;
+        flex-shrink: 0;
+        background: var(--cr200);
+        border-radius: var(--r-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .reason-card-icon svg {
+        width: 22px; height: 22px;
+        stroke: var(--g600);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .reason-card-body h3 {
+        color: var(--g900);
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+    .reason-card-body p {
+        color: var(--ch600);
+        font-size: .95rem;
+        line-height: 1.65;
+    }
+
+    /* ============================================================
+       PROCESS STEPS
+    ============================================================ */
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+    .process-step {
+        text-align: center;
+        padding: 36px 24px;
+        background: var(--cr100);
+        border-radius: var(--r-md);
+        border: 1px solid var(--cr300);
+    }
+    .process-step-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 52px; height: 52px;
+        border-radius: 50%;
+        background: var(--g700);
+        color: var(--white);
+        font-family: var(--ff-display);
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 0 auto 20px;
+    }
+    .process-step h3 {
+        color: var(--g900);
+        margin-bottom: 10px;
+    }
+    .process-step p {
+        color: var(--ch600);
+        font-size: .95rem;
+        line-height: 1.65;
+    }
+
+    /* ============================================================
+       TRUST SECTION
+    ============================================================ */
+    .section-dark {
+        background: var(--g900);
+    }
+    .section-dark .section-header h2 { color: var(--white); }
+    .section-dark .section-header p { color: rgba(255,255,255,.65); }
+    .section-dark .section-label { color: var(--g300); }
+    .section-dark .divider { background: var(--g500); }
+
+    .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .trust-card {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: var(--r-md);
+        padding: 36px 28px;
+        text-align: center;
+    }
+    .trust-card-icon {
+        width: 60px; height: 60px;
+        border-radius: 50%;
+        background: rgba(106,184,135,.15);
+        border: 1px solid rgba(106,184,135,.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+    .trust-card-icon svg {
+        width: 26px; height: 26px;
+        stroke: var(--g300);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .trust-card h3 {
+        color: var(--white);
+        margin-bottom: 10px;
+        font-size: 1.12rem;
+    }
+    .trust-card p {
+        color: rgba(255,255,255,.62);
+        font-size: .92rem;
+        line-height: 1.65;
+    }
+
+    /* ============================================================
+       CTA BAND
+    ============================================================ */
+    .cta-band {
+        background: var(--ch900);
+        padding: 72px 0;
+        text-align: center;
+    }
+    .cta-band h2 {
+        color: var(--white);
+        text-transform: uppercase;
+        font-size: clamp(1.7rem, 3vw, 2.4rem);
+        margin-bottom: 14px;
+    }
+    .cta-band p {
+        color: rgba(255,255,255,.70);
+        font-size: 1.05rem;
+        max-width: 500px;
+        margin: 0 auto 32px;
+        line-height: 1.7;
+    }
+    .cta-band-btns {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .btn-cta-solid {
+        background: var(--g500);
+        color: var(--white);
+        border-color: var(--g500);
+        font-size: 1.05rem;
+        padding: 16px 34px;
+    }
+    .btn-cta-solid:hover {
+        background: var(--g400);
+        border-color: var(--g400);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 28px rgba(58,122,92,.32);
+    }
+    .btn-cta-outline {
+        background: transparent;
+        color: var(--white);
+        border-color: rgba(255,255,255,.45);
+        font-size: 1.05rem;
+        padding: 16px 34px;
+    }
+    .btn-cta-outline:hover {
+        border-color: var(--white);
+        background: rgba(255,255,255,.08);
+        transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+        background: var(--ch900);
+        color: rgba(255,255,255,.60);
+        padding: 60px 0 40px;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.35fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 48px;
+    }
+
+    .footer-brand .logo-name { color: var(--white); font-size: 1.35rem; }
+    .footer-brand .logo-sub { color: var(--earth400); }
+    .footer-brand .logo-img { height: 38px; opacity: .82; }
+    .footer-brand p {
+        margin-top: 14px;
+        font-size: .9rem;
+        line-height: 1.7;
+        max-width: 255px;
+    }
+    .footer-tel {
+        display: block;
+        margin-top: 16px;
+        font-family: var(--ff-display);
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--g300);
+        letter-spacing: .02em;
+        transition: color var(--ease);
+    }
+    .footer-tel:hover { color: var(--g400); }
+    .footer-tel-alt { font-size: .95rem; margin-top: 4px; }
+    .footer-email { font-size: .95rem; margin-top: 6px; display: block; }
+    .footer-license {
+        margin-top: 12px;
+        font-size: .78rem;
+        color: rgba(255,255,255,.38);
+        letter-spacing: .04em;
+    }
+    .footer-facebook {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        margin-top: 12px;
+        font-size: .88rem;
+        font-weight: 600;
+        color: rgba(255,255,255,.56);
+        transition: color var(--ease);
+    }
+    .footer-facebook:hover { color: var(--white); }
+    .footer-facebook svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+
+    .footer-col h4 {
+        font-size: .73rem;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul li a {
+        font-size: .9rem;
+        color: rgba(255,255,255,.56);
+        transition: color var(--ease);
+        cursor: pointer;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-col ul + h4 { margin-top: 22px; }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,.09);
+        padding-top: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .footer-bottom p { font-size: .84rem; }
+    .footer-bottom-area { font-size: .84rem; color: rgba(255,255,255,.38); }
+
+    /* ============================================================
+       STICKY MOBILE CALL BAR
+    ============================================================ */
+    .mobile-call {
+        display: none;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        z-index: 200;
+        background: var(--g800);
+        padding: 12px 24px;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+        box-shadow: 0 -3px 18px rgba(0,0,0,.22);
+    }
+    .mobile-call a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: var(--white);
+        font-family: var(--ff-display);
+        font-size: 1.18rem;
+        font-weight: 600;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        min-height: 44px;
+        cursor: pointer;
+    }
+    .mobile-call a svg {
+        width: 19px; height: 19px;
+        stroke: var(--white);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 768px) {
+        .section { padding: 64px 0; }
+
+        .main-nav          { display: none; }
+        .header-tel        { display: none; }
+        .header-right .btn { display: none; }
+        .nav-toggle        { display: flex; }
+        .mobile-call       { display: block; }
+        body               { padding-bottom: 66px; }
+
+        .reasons-grid   { grid-template-columns: 1fr; }
+        .process-steps  { grid-template-columns: 1fr; }
+        .trust-grid     { grid-template-columns: 1fr; }
+        .page-hero-ctas { flex-direction: column; align-items: flex-start; }
+        .footer-grid    { grid-template-columns: 1fr; gap: 28px; }
+        .footer-bottom  { flex-direction: column; align-items: flex-start; }
+        .cta-band-btns  { flex-direction: column; align-items: center; }
+        .btn-cta-solid,
+        .btn-cta-outline { width: 100%; max-width: 340px; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+        .page-hero { min-height: 380px; }
+        .reason-card { flex-direction: column; gap: 14px; }
+    }
+
+    /* ============================================================
+       ACCESSIBILITY
+    ============================================================ */
+    :focus-visible { outline: 2px solid var(--g500); outline-offset: 3px; }
+
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: .01ms !important;
+            transition-duration: .01ms !important;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<!-- ===================================================
+     HEADER
+==================================================== -->
+<header class="site-header" id="site-header">
+    <div class="container">
+        <div class="header-inner">
+
+            <a class="logo" href="index.html" aria-label="Barton's Tree Care — Home">
+                <img src="assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
+                <div>
+                    <span class="logo-name">Barton's Tree Care</span>
+                    <span class="logo-sub">Tree Service</span>
+                </div>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <ul class="main-nav" role="list">
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#why">Why Choose Us</a></li>
+                    <li><a href="our-work.html">Our Work</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <a class="header-tel" href="tel:+14433063037" aria-label="Call (443) 306-3037">(443) 306-3037</a>
+                <a class="btn btn-primary" href="tel:+14433063037">Call Now</a>
+            </div>
+
+            <button class="nav-toggle" id="nav-toggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
+
+        </div>
+    </div>
+</header>
+
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#why">Why Choose Us</a>
+    <a href="our-work.html">Our Work</a>
+    <a href="index.html#contact">Contact</a>
+    <div class="mobile-nav-cta">
+        <a class="btn btn-primary" href="tel:+14433063037">Call (443) 306-3037</a>
+        <a class="btn btn-ghost" href="index.html#contact">Request a Quote</a>
+    </div>
+</nav>
+
+
+<!-- ===================================================
+     PAGE HERO
+==================================================== -->
+<section class="page-hero" aria-labelledby="page-hero-h1">
+    <div class="page-hero-bg" aria-hidden="true"></div>
+    <div class="container">
+        <div class="page-hero-content">
+            <div class="page-hero-eyebrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 22V14M12 14c0-4-6-6-8-3s1 7 5 7h6c4 0 7-4 5-7s-8-1-8 3"/>
+                    <path d="M8 14c-2-1-3-3-2-5"/>
+                    <path d="M16 14c2-1 3-3 2-5"/>
+                </svg>
+                Tree Health · Maryland
+            </div>
+            <h1 id="page-hero-h1">
+                Professional Tree Pruning<br>
+                <span class="accent">Done Right. Lasts Longer.</span>
+            </h1>
+            <p class="page-hero-sub">Proper pruning preserves tree health, improves structure, and reduces long-term risk. Bad pruning does the opposite — and the damage is hard to undo.</p>
+            <div class="page-hero-ctas">
+                <a class="btn btn-hero-solid" href="tel:+14433063037" aria-label="Call Barton's Tree Care">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Call (443) 306-3037
+                </a>
+                <a class="btn btn-hero-outline" href="index.html#contact">Request a Free Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     INTRO
+==================================================== -->
+<section class="section" aria-label="Service overview">
+    <div class="container">
+        <div class="service-intro">
+            <span class="section-label">What to Know</span>
+            <div class="divider" aria-hidden="true"></div>
+            <p>Pruning is one of the most misunderstood aspects of tree care. Done correctly, it removes deadwood, improves structural integrity, and reduces the likelihood of branch failure during storms. Done incorrectly — through topping, flush cuts, or over-pruning — it causes long-term damage and creates hazards that compound over time. Barton's Tree Care handles all phases of pruning with licensed arborist oversight and a focus on long-term tree health.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     WHEN YOU NEED PRUNING
+==================================================== -->
+<section class="section section-alt" aria-labelledby="reasons-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">When to Act</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="reasons-h2">When Your Trees Need Pruning</h2>
+            <p>Pruning isn't just cosmetic. These are the situations where it makes a real difference to safety and health.</p>
+        </div>
+        <div class="reasons-grid">
+
+            <div class="reason-card">
+                <div class="reason-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                </div>
+                <div class="reason-card-body">
+                    <h3>Deadwood &amp; Hazardous Branches</h3>
+                    <p>Dead, dying, or hanging branches are the single highest-risk element in most residential trees. They don't need a storm to fall — deadwood can fail on a calm day. Removing it is the most impactful thing you can do for immediate safety.</p>
+                </div>
+            </div>
+
+            <div class="reason-card">
+                <div class="reason-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22V14M12 14c0-4-6-6-8-3s1 7 5 7h6c4 0 7-4 5-7s-8-1-8 3"/>
+                        <path d="M8 14c-2-1-3-3-2-5"/>
+                        <path d="M16 14c2-1 3-3 2-5"/>
+                    </svg>
+                </div>
+                <div class="reason-card-body">
+                    <h3>Crown Thinning &amp; Clearance</h3>
+                    <p>Dense crowns act like sails in high wind. Selective thinning allows airflow through the canopy, reduces wind load, and can make a meaningful difference in how a tree handles storm conditions. It also improves light penetration to the interior.</p>
+                </div>
+            </div>
+
+            <div class="reason-card">
+                <div class="reason-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </div>
+                <div class="reason-card-body">
+                    <h3>Structural Defects</h3>
+                    <p>Co-dominant stems, included bark, and weak attachment points are predictable failure points. Identifying and addressing them early through structural pruning prevents the kind of branch failures that cause property damage. These problems don't fix themselves.</p>
+                </div>
+            </div>
+
+            <div class="reason-card">
+                <div class="reason-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9"/>
+                        <polyline points="13 11 9 17 15 17 11 23"/>
+                    </svg>
+                </div>
+                <div class="reason-card-body">
+                    <h3>Storm Preparation</h3>
+                    <p>Proactive pruning before storm season reduces the chance of branch failure when conditions are worst. A tree that's been properly maintained is far more resilient than one that's been neglected for years and pruned in a hurry the day before a storm.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     OUR APPROACH
+==================================================== -->
+<section class="section" aria-labelledby="approach-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">How We Work</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="approach-h2">Our Approach</h2>
+            <p>Every pruning job starts with understanding the tree — not just the branches that look obvious.</p>
+        </div>
+        <div class="process-steps">
+
+            <div class="process-step">
+                <div class="process-step-num" aria-hidden="true">1</div>
+                <h3>TRAQ-Informed Assessment</h3>
+                <p>We assess each tree using a Tree Risk Assessment Qualification (TRAQ)-informed process — identifying structural defects, failure potential, and targets before making any cuts. The goal is to understand what the tree actually needs, not just what's visually obvious.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="process-step-num" aria-hidden="true">2</div>
+                <h3>Species-Appropriate Cuts</h3>
+                <p>Every cut is made with proper technique: outside the branch collar, at the correct angle, without leaving stubs. No topping. No flush cuts. The way a cut is made directly affects how well the tree seals the wound — and that matters for long-term health.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="process-step-num" aria-hidden="true">3</div>
+                <h3>Long-Term Health Focus</h3>
+                <p>Our goal is a structurally sound, healthy tree that doesn't need constant intervention. We prune to improve structure over time — not just to make the tree look trimmed today. Proper pruning now means fewer problems and less cost down the road.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     WHY BARTON'S
+==================================================== -->
+<section class="section section-dark" aria-labelledby="trust-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Why Choose Us</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="trust-h2">Why Barton's Tree Care</h2>
+            <p>Licensed oversight, sound technique, and 30+ years of working with Maryland trees.</p>
+        </div>
+        <div class="trust-grid">
+
+            <div class="trust-card">
+                <div class="trust-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h3>Licensed Arborist Oversight</h3>
+                <p>All pruning work is performed under licensed arborist supervision. MD Tree Expert License #133 &amp; #1883. You're not paying for guesswork — you're getting professionals who understand tree biology and how cuts affect long-term health.</p>
+            </div>
+
+            <div class="trust-card">
+                <div class="trust-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <h3>No Topping. Ever.</h3>
+                <p>Topping destroys a tree's structure, creates massive decay entry points, and generates fast-growing, weakly-attached regrowth that becomes a hazard within a few years. We don't top trees. If another company offers to, that's a red flag — walk away.</p>
+            </div>
+
+            <div class="trust-card">
+                <div class="trust-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M12 14c-5 0-8 2-8 4v2h16v-2c0-2-3-4-8-4z"/>
+                    </svg>
+                </div>
+                <h3>30+ Years of Maryland Trees</h3>
+                <p>We know the species common to Maryland — oaks, maples, tulip poplars, white pines — their growth patterns, failure modes, and what pruning approach works best for each. That knowledge doesn't come from a manual.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     CTA BAND
+==================================================== -->
+<section class="cta-band" aria-labelledby="cta-h2">
+    <div class="container">
+        <h2 id="cta-h2">Schedule a Pruning Assessment</h2>
+        <p>Call Barton's Tree Care for a free quote. We serve homeowners across Maryland and have since 1989.</p>
+        <div class="cta-band-btns">
+            <a class="btn btn-cta-solid" href="tel:+14433063037" aria-label="Call Barton's Tree Care">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                Call (443) 306-3037
+            </a>
+            <a class="btn btn-cta-outline" href="index.html#contact">Request a Free Quote</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     FOOTER
+==================================================== -->
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
+                    <div>
+                        <span class="logo-name">Barton's Tree Care</span>
+                        <span class="logo-sub">Tree Service · Est. 1989</span>
+                    </div>
+                </div>
+                <p>Licensed tree care serving homeowners throughout Maryland since 1989. Located in Crofton, MD.</p>
+                <a class="footer-tel" href="tel:+14433063037" aria-label="Call (443) 306-3037">(443) 306-3037</a>
+                <a class="footer-tel footer-tel-alt" href="tel:+14107100164" aria-label="Call (410) 710-0164">(410) 710-0164</a>
+                <a class="footer-tel footer-email" href="mailto:bartonstree@verizon.net" aria-label="Email bartonstree@verizon.net">bartonstree@verizon.net</a>
+                <p class="footer-license">MD Tree Expert License #133 &amp; #1883</p>
+                <a class="footer-facebook" href="https://www.facebook.com/bartonstree" target="_blank" rel="noopener noreferrer" aria-label="Barton's Tree Care on Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    Facebook
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul role="list">
+                    <li><a href="tree-removal.html">Tree Removal</a></li>
+                    <li><a href="storm-damage.html">Storm Damage Remediation</a></li>
+                    <li><a href="pruning.html">Pruning</a></li>
+                    <li><a href="index.html#services">Stump Grinding</a></li>
+                    <li><a href="index.html#services">Lot Clearing</a></li>
+                    <li><a href="index.html#services">Risk Assessment</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul role="list">
+                    <li><a href="index.html#why">Why Choose Us</a></li>
+                    <li><a href="index.html#reviews">Customer Reviews</a></li>
+                    <li><a href="our-work.html">Our Work</a></li>
+                    <li><a href="index.html#contact">Request a Quote</a></li>
+                    <li><a href="tel:+14433063037">Call Now</a></li>
+                    <li><a href="https://www.facebook.com/bartonstree" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                </ul>
+                <h4>Service Area</h4>
+                <ul role="list">
+                    <li><a href="index.html#contact">Crofton &amp; Gambrills</a></li>
+                    <li><a href="index.html#contact">Annapolis &amp; Edgewater</a></li>
+                    <li><a href="index.html#contact">Severna Park &amp; Arnold</a></li>
+                    <li><a href="index.html#contact">Anne Arundel County</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Barton's Tree Care. All rights reserved. &nbsp;·&nbsp; Crofton, MD 21114</p>
+            <p class="footer-bottom-area">Serving Maryland Since 1989</p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ===================================================
+     STICKY MOBILE CALL BAR
+==================================================== -->
+<div class="mobile-call" role="complementary" aria-label="Quick call button">
+    <a href="tel:+14433063037" aria-label="Call Barton's Tree Care at (443) 306-3037">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Call (443) 306-3037
+    </a>
+</div>
+
+
+<!-- ===================================================
+     JAVASCRIPT
+==================================================== -->
+<script>
+(function () {
+    'use strict';
+
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
+
+    const toggle    = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    function closeNav() {
+        mobileNav.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+        const willOpen = !mobileNav.classList.contains('open');
+        if (willOpen) {
+            mobileNav.classList.add('open');
+            toggle.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        } else {
+            closeNav();
+        }
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNav));
+
+    document.addEventListener('click', e => {
+        if (mobileNav.classList.contains('open') &&
+            !mobileNav.contains(e.target) &&
+            !toggle.contains(e.target)) {
+            closeNav();
+        }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const id = this.getAttribute('href');
+            if (id === '#') return;
+            const target = document.querySelector(id);
+            if (!target) return;
+            e.preventDefault();
+            const offset = header.offsetHeight + 16;
+            window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+        });
+    });
+})();
+</script>
+
+</body>
+</html>
