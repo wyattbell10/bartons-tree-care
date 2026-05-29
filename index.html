@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barton's Tree Care | Tree Service in Maryland</title>
-    <meta name="description" content="Licensed tree care serving Maryland and surrounding areas from Crofton, MD. Barton's Tree Care provides tree removal, pruning, storm damage remediation, stump grinding, lot clearing, and risk assessments. Call (443) 306-3037 or (410) 710-0164.">
+    <meta name="description" content="Licensed tree care serving Maryland and surrounding areas from Crofton, MD. Barton's Tree Care provides tree removal, pruning, storm damage remediation, stump grinding, lot clearing, and risk assessments. Call (410) 710-0164 or (443) 306-3037.">
 
     <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/bartons_logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/logos/bartons_logo.png">
@@ -35,7 +35,10 @@
         {"@type": "AdministrativeArea", "name": "Montgomery County, MD"},
         {"@type": "AdministrativeArea", "name": "Baltimore County, MD"},
         {"@type": "AdministrativeArea", "name": "Prince George's County, MD"},
-        {"@type": "City", "name": "Washington, DC"}
+        {"@type": "City", "name": "Washington, DC"},
+        {"@type": "City", "name": "Potomac", "containedInPlace": {"@type": "State", "name": "Maryland"}},
+        {"@type": "City", "name": "Bethesda", "containedInPlace": {"@type": "State", "name": "Maryland"}},
+        {"@type": "City", "name": "Ellicott City", "containedInPlace": {"@type": "State", "name": "Maryland"}}
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -245,7 +248,7 @@
     .btn-hero-outline {
         background: transparent;
         color: var(--white);
-        border-color: rgba(255,255,255,.55);
+        border-color: rgba(255,255,255,.68);
         font-size: 1.05rem;
         padding: 16px 34px;
     }
@@ -413,22 +416,21 @@
         overflow: hidden;
     }
 
-    /*
-     * HERO BACKGROUND
-     * To swap in a real photo, change the background property below:
-     *   background: linear-gradient(135deg, rgba(23,46,34,.90) 0%, rgba(37,77,58,.80) 100%),
-     *               url('your-photo.jpg') center / cover no-repeat;
-     */
     .hero-bg {
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-            150deg,
-            #172e22 0%,
-            #1d3a2c 30%,
-            #254d3a 60%,
-            #1f402e 100%
-        );
+        background-color: var(--g900);
+        background-image:
+            linear-gradient(
+                to bottom,
+                rgba(13,23,17,.70) 0%,
+                rgba(13,23,17,.78) 50%,
+                rgba(13,23,17,.88) 100%
+            ),
+            url('assets/gallery/crane-work/crane_work_5.jpg');
+        background-size: 100% 100%, cover;
+        background-position: center, center 30%;
+        background-repeat: no-repeat, no-repeat;
     }
     /* Subtle grain texture */
     .hero-bg::after {
@@ -462,7 +464,7 @@
     }
     .hero-eyebrow svg {
         width: 13px; height: 13px;
-        stroke: var(--g300);
+        stroke: var(--earth200);
         fill: none;
         stroke-width: 2;
         stroke-linecap: round;
@@ -473,12 +475,13 @@
         color: var(--white);
         text-transform: uppercase;
         margin-bottom: 24px;
+        text-shadow: 0 2px 18px rgba(0,0,0,.45);
     }
-    .hero h1 .accent { color: var(--g300); }
+    .hero h1 .accent { color: var(--earth200); }
 
     .hero-sub {
         font-size: 1.15rem;
-        color: rgba(255,255,255,.8);
+        color: rgba(255,255,255,.88);
         max-width: 590px;
         line-height: 1.72;
         margin-bottom: 42px;
@@ -515,7 +518,7 @@
     }
     .trust-icon svg {
         width: 17px; height: 17px;
-        stroke: var(--g300);
+        stroke: rgba(255,255,255,.8);
         fill: none;
         stroke-width: 2;
         stroke-linecap: round;
@@ -1342,8 +1345,8 @@
             </nav>
 
             <div class="header-right">
-                <a class="header-tel" href="tel:+14433063037" aria-label="Call (443) 306-3037">(443) 306-3037</a>
-                <a class="btn btn-primary" href="tel:+14433063037">Call Now</a>
+                <a class="header-tel" href="tel:+14107100164" aria-label="Call (410) 710-0164">(410) 710-0164</a>
+                <a class="btn btn-primary" href="tel:+14107100164">Call Now</a>
             </div>
 
             <button class="nav-toggle" id="nav-toggle"
@@ -1364,7 +1367,7 @@
     <a href="our-work.html">Our Work</a>
     <a href="#contact">Contact</a>
     <div class="mobile-nav-cta">
-        <a class="btn btn-primary" href="tel:+14433063037">Call (443) 306-3037</a>
+        <a class="btn btn-primary" href="tel:+14107100164">Call (410) 710-0164</a>
         <a class="btn btn-ghost" href="#contact">Request a Quote</a>
     </div>
 </nav>
@@ -1395,14 +1398,14 @@
             </p>
 
             <div class="hero-ctas">
-                <a class="btn btn-hero-solid" href="tel:+14433063037" aria-label="Call Barton's Tree Care now">
+                <a class="btn btn-hero-solid" href="tel:+14107100164" aria-label="Call Barton's Tree Care now">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
                     </svg>
                     Call Now
                 </a>
                 <a class="btn btn-hero-outline" href="#contact">Request a Free Quote</a>
-                <p class="hero-alt-tel">or call <a href="tel:+14107100164">(410) 710-0164</a></p>
+                <p class="hero-alt-tel">or call <a href="tel:+14433063037">(443) 306-3037</a></p>
             </div>
 
             <div class="trust-row" role="list" aria-label="Trust highlights">
@@ -1869,13 +1872,13 @@
             </div>
 
             <div>
-                <a class="btn btn-emg" href="tel:+14433063037" aria-label="Call Barton's Tree Care for emergency service">
+                <a class="btn btn-emg" href="tel:+14107100164" aria-label="Call Barton's Tree Care for emergency service">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
                     </svg>
-                    Call (443) 306-3037
+                    Call (410) 710-0164
                 </a>
-                <p class="emg-alt-tel">Alt: <a href="tel:+14107100164">(410) 710-0164</a></p>
+                <p class="emg-alt-tel">Alt: <a href="tel:+14433063037">(443) 306-3037</a></p>
             </div>
 
         </div>
@@ -1944,8 +1947,8 @@
                     <div>
                         <span class="contact-row-label">Phone</span>
                         <div class="contact-row-val">
-                            <a href="tel:+14433063037">(443) 306-3037</a>
-                            <a href="tel:+14107100164" class="contact-alt-tel">(410) 710-0164</a>
+                            <a href="tel:+14107100164">(410) 710-0164</a>
+                            <a href="tel:+14433063037" class="contact-alt-tel">(443) 306-3037</a>
                         </div>
                     </div>
                 </div>
@@ -2081,8 +2084,8 @@
                     </div>
                 </div>
                 <p>Licensed tree care serving homeowners throughout Maryland since 1989. Located in Crofton, MD.</p>
-                <a class="footer-tel" href="tel:+14433063037" aria-label="Call (443) 306-3037">(443) 306-3037</a>
-                <a class="footer-tel footer-tel-alt" href="tel:+14107100164" aria-label="Call (410) 710-0164">(410) 710-0164</a>
+                <a class="footer-tel" href="tel:+14107100164" aria-label="Call (410) 710-0164">(410) 710-0164</a>
+                <a class="footer-tel footer-tel-alt" href="tel:+14433063037" aria-label="Call (443) 306-3037">(443) 306-3037</a>
                 <a class="footer-tel footer-email" href="mailto:bartonstree@verizon.net" aria-label="Email bartonstree@verizon.net">bartonstree@verizon.net</a>
                 <p class="footer-license">MD Tree Expert License #133 &amp; #1883</p>
                 <a class="footer-facebook" href="https://www.facebook.com/bartonstree" target="_blank" rel="noopener noreferrer" aria-label="Barton's Tree Care on Facebook">
@@ -2110,7 +2113,7 @@
                     <li><a href="#reviews">Customer Reviews</a></li>
                     <li><a href="our-work.html">Our Work</a></li>
                     <li><a href="#contact">Request a Quote</a></li>
-                    <li><a href="tel:+14433063037">Call Now</a></li>
+                    <li><a href="tel:+14107100164">Call Now</a></li>
                     <li><a href="https://www.facebook.com/bartonstree" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                 </ul>
                 <h4>Service Area</h4>
@@ -2135,11 +2138,11 @@
      STICKY MOBILE CALL BAR
 ==================================================== -->
 <div class="mobile-call" role="complementary" aria-label="Quick call button">
-    <a href="tel:+14433063037" aria-label="Call Barton's Tree Care at (443) 306-3037">
+    <a href="tel:+14107100164" aria-label="Call Barton's Tree Care at (410) 710-0164">
         <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
         </svg>
-        Call (443) 306-3037
+        Call (410) 710-0164
     </a>
 </div>
 
