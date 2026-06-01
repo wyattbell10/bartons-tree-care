@@ -683,37 +683,64 @@
         color: var(--ch600);
     }
 
-    .reviews-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+    .reviews-carousel { position: relative; }
+    .reviews-track {
+        display: flex;
         gap: 22px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 6px;
     }
+    .reviews-track::-webkit-scrollbar { display: none; }
 
     .review-card {
         background: var(--white);
         border: 1px solid var(--cr300);
         border-radius: var(--r-md);
-        padding: 30px 26px;
+        padding: 26px 24px 22px;
         box-shadow: var(--sh-sm);
         display: flex;
         flex-direction: column;
         gap: 14px;
         transition: box-shadow var(--ease), transform var(--ease);
         cursor: default;
+        scroll-snap-align: start;
+        flex: 0 0 calc(33.333% - 15px);
+        min-width: 260px;
     }
     .review-card:hover {
         box-shadow: var(--sh-md);
         transform: translateY(-2px);
     }
 
+    .rev-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     .rev-stars { display: flex; gap: 3px; }
     .rev-stars svg {
-        width: 17px; height: 17px;
+        width: 16px; height: 16px;
         fill: var(--gold);
     }
 
+    .rev-google-badge {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: .69rem;
+        font-weight: 600;
+        color: var(--ch500);
+        letter-spacing: .02em;
+        white-space: nowrap;
+    }
+    .rev-google-g { width: 15px; height: 15px; flex-shrink: 0; }
+
     .rev-text {
-        font-size: .95rem;
+        font-size: .94rem;
         color: var(--ch700);
         line-height: 1.72;
         font-style: italic;
@@ -727,19 +754,30 @@
         padding-top: 14px;
         border-top: 1px solid var(--cr300);
     }
-    .rev-avatar {
-        width: 40px; height: 40px;
+    .rev-avatar-wrap {
+        position: relative;
+        width: 42px; height: 42px;
+        flex-shrink: 0;
+    }
+    .rev-avatar-img {
+        width: 42px; height: 42px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+    }
+    .rev-avatar-fallback {
+        position: absolute;
+        inset: 0;
         background: var(--g900);
         border-radius: 50%;
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
         font-family: var(--ff-display);
-        font-size: .92rem;
+        font-size: .9rem;
         font-weight: 600;
         color: var(--g300);
         letter-spacing: .04em;
-        flex-shrink: 0;
     }
     .rev-author-name {
         display: block;
@@ -747,17 +785,41 @@
         font-weight: 700;
         color: var(--ch800);
     }
-    .rev-author-loc {
-        font-size: .78rem;
-        color: var(--ch500);
+
+
+    .rev-nav {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 28px;
     }
-    .rev-verified {
-        display: block;
-        font-size: .71rem;
-        font-weight: 600;
-        color: #4285f4;
-        letter-spacing: .03em;
-        margin-top: 3px;
+    .rev-btn {
+        width: 40px; height: 40px;
+        border-radius: 50%;
+        border: 1.5px solid var(--cr300);
+        background: var(--white);
+        color: var(--ch700);
+        box-shadow: var(--sh-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background var(--ease), border-color var(--ease), box-shadow var(--ease);
+        flex-shrink: 0;
+    }
+    .rev-btn:hover:not(:disabled) {
+        background: var(--cr200);
+        border-color: var(--g600);
+        box-shadow: var(--sh-md);
+    }
+    .rev-btn:disabled { opacity: .35; cursor: default; }
+    .rev-btn svg {
+        width: 16px; height: 16px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
     }
 
     .hero-alt-tel {
@@ -1267,7 +1329,7 @@
     @media (max-width: 1024px) {
         .services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .why-grid      { grid-template-columns: repeat(2, 1fr); }
-        .reviews-grid  { grid-template-columns: repeat(2, 1fr); }
+        .review-card   { flex: 0 0 calc(50% - 11px); }
         .contact-wrap  { grid-template-columns: 1fr; gap: 40px; }
         .footer-grid   { grid-template-columns: 1fr 1fr; gap: 36px; }
         .emergency-inner { flex-direction: column; align-items: flex-start; }
@@ -1286,7 +1348,7 @@
 
         .services-grid { grid-template-columns: 1fr; }
         .why-grid      { grid-template-columns: repeat(2, 1fr); }
-        .reviews-grid  { grid-template-columns: 1fr; }
+        .review-card   { flex: 0 0 84%; }
         .footer-grid   { grid-template-columns: 1fr; gap: 28px; }
         .form-row      { grid-template-columns: 1fr; }
 
@@ -1632,65 +1694,201 @@
             </div>
         </div>
 
-        <div class="reviews-grid">
+        <div class="reviews-carousel">
+            <div class="reviews-track" id="reviews-track" role="list">
 
-            <article class="review-card" aria-label="Review by Dan Bolen">
-                <div class="rev-stars" aria-label="5 out of 5 stars">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <p class="rev-text">"Great company. They worked on 4 different trees at my house in Severna Park. Did a great job. Professional, extremely knowledgeable, and left the property cleaner than when they came. We have used them multiple times and will call them again. Could not recommend more."</p>
-                <div class="rev-author">
-                    <div class="rev-avatar" aria-hidden="true">DB</div>
-                    <div>
-                        <span class="rev-author-name">Dan Bolen</span>
-                        <span class="rev-author-loc">Severna Park, MD</span>
-                        <span class="rev-verified">✓ Google Verified Review</span>
+                <article class="review-card" role="listitem" aria-label="Review by Robin Stafford">
+                    <div class="rev-card-top">
+                        <div class="rev-stars" aria-label="5 out of 5 stars">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <div class="rev-google-badge">
+                            <svg class="rev-google-g" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            <span>Google Review</span>
+                        </div>
                     </div>
-                </div>
-            </article>
-
-            <article class="review-card" aria-label="Review by John McLanigan">
-                <div class="rev-stars" aria-label="5 out of 5 stars">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <p class="rev-text">"Barton's was contacted by my insurance company to remove a storm-damaged tree and did an excellent job. While they were here, I asked about removing several more trees, was quoted a great price, and the job was completed the same day. I was kept up to date throughout the entire process. Very satisfied and highly recommend them."</p>
-                <div class="rev-author">
-                    <div class="rev-avatar" aria-hidden="true">JM</div>
-                    <div>
-                        <span class="rev-author-name">John McLanigan</span>
-                        <span class="rev-author-loc">Anne Arundel County, MD</span>
-                        <span class="rev-verified">✓ Google Verified Review</span>
+                    <p class="rev-text">"They took down trees and branches around my house and they did a great job. They took care in bringing the branches down in a controlled manner, worked around my garden and honeybees and left everything as it was. You did a great job!"</p>
+                    <div class="rev-author">
+                        <div class="rev-avatar-wrap">
+                            <img class="rev-avatar-img" src="assets/profilepics/robbin_stafford.png" alt="Robin Stafford" width="42" height="42" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="rev-avatar-fallback" aria-hidden="true">RS</div>
+                        </div>
+                        <div>
+                            <span class="rev-author-name">Robin Stafford</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="review-card" aria-label="Review by R.P. Murphy">
-                <div class="rev-stars" aria-label="5 out of 5 stars">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <p class="rev-text">"Ed and Ed Jr. from Barton's did an incredible job taking down a huge Tulip Poplar tree about 6 stories high. It was in a corner against a fence bordering 3 properties, but they expertly took it down and completed the work in a day. I would definitely use them again."</p>
-                <div class="rev-author">
-                    <div class="rev-avatar" aria-hidden="true">RM</div>
-                    <div>
-                        <span class="rev-author-name">R.P. Murphy</span>
-                        <span class="rev-author-loc">Anne Arundel County, MD</span>
-                        <span class="rev-verified">✓ Google Verified Review</span>
+                <article class="review-card" role="listitem" aria-label="Review by LaCynda Doucette">
+                    <div class="rev-card-top">
+                        <div class="rev-stars" aria-label="5 out of 5 stars">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <div class="rev-google-badge">
+                            <svg class="rev-google-g" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            <span>Google Review</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                    <p class="rev-text">"The team at Barton's Tree Removal was incredible and thorough. We had new mulch and landscaping installed and during the removal process they did not disturb anything. It was seamless. And extremely professional. Highly recommend."</p>
+                    <div class="rev-author">
+                        <div class="rev-avatar-wrap">
+                            <img class="rev-avatar-img" src="assets/profilepics/lacynda_doucette.png" alt="LaCynda Doucette" width="42" height="42" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="rev-avatar-fallback" aria-hidden="true">LD</div>
+                        </div>
+                        <div>
+                            <span class="rev-author-name">LaCynda Doucette</span>
+                        </div>
+                    </div>
+                </article>
 
+                <article class="review-card" role="listitem" aria-label="Review by Ruth Slavin">
+                    <div class="rev-card-top">
+                        <div class="rev-stars" aria-label="5 out of 5 stars">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <div class="rev-google-badge">
+                            <svg class="rev-google-g" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            <span>Google Review</span>
+                        </div>
+                    </div>
+                    <p class="rev-text">"I am very pleased with Barton's Tree Care! They pruned 2 of my huge Oak trees today. They were extremely professional and knowledgeable about what they were going to do, and they did just that! Both trees look really great! I would definitely recommend them!"</p>
+                    <div class="rev-author">
+                        <div class="rev-avatar-wrap">
+                            <img class="rev-avatar-img" src="assets/profilepics/ruth_slavin.png" alt="Ruth Slavin" width="42" height="42" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="rev-avatar-fallback" aria-hidden="true">RS</div>
+                        </div>
+                        <div>
+                            <span class="rev-author-name">Ruth Slavin</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="review-card" role="listitem" aria-label="Review by Susan">
+                    <div class="rev-card-top">
+                        <div class="rev-stars" aria-label="5 out of 5 stars">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <div class="rev-google-badge">
+                            <svg class="rev-google-g" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            <span>Google Review</span>
+                        </div>
+                    </div>
+                    <p class="rev-text">"We've been customers of Barton's for about 15 years now. We always get exceptional customer service from Mr. Barton. He and his team are great to work with. Always on time, always courteous, explain what should be done, and provide competitive pricing on every job. We feel confident recommending them to all our friends and neighbors."</p>
+                    <div class="rev-author">
+                        <div class="rev-avatar-wrap">
+                            <img class="rev-avatar-img" src="assets/profilepics/susan.png" alt="Susan" width="42" height="42" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="rev-avatar-fallback" aria-hidden="true">S</div>
+                        </div>
+                        <div>
+                            <span class="rev-author-name">Susan</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="review-card" role="listitem" aria-label="Review by Dan Bolen">
+                    <div class="rev-card-top">
+                        <div class="rev-stars" aria-label="5 out of 5 stars">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <div class="rev-google-badge">
+                            <svg class="rev-google-g" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            <span>Google Review</span>
+                        </div>
+                    </div>
+                    <p class="rev-text">"Great company. They worked on 4 different trees at my house in Severna Park. Did a great job. Professional, extremely knowledgeable, and left the property cleaner than when they came. We have used them multiple times and will call them again. Could not recommend more."</p>
+                    <div class="rev-author">
+                        <div class="rev-avatar-wrap">
+                            <img class="rev-avatar-img" src="assets/profilepics/dan_bolen.png" alt="Dan Bolen" width="42" height="42" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="rev-avatar-fallback" aria-hidden="true">DB</div>
+                        </div>
+                        <div>
+                            <span class="rev-author-name">Dan Bolen</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="review-card" role="listitem" aria-label="Review by John McLanigan">
+                    <div class="rev-card-top">
+                        <div class="rev-stars" aria-label="5 out of 5 stars">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <div class="rev-google-badge">
+                            <svg class="rev-google-g" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            <span>Google Review</span>
+                        </div>
+                    </div>
+                    <p class="rev-text">"Barton's was contacted by my insurance company to remove a storm-damaged tree and did an excellent job. While they were here, I inquired about removal of several more trees, was quoted a great price, and the job was completed the same day. I was kept up to date throughout the entire process. I'm very satisfied and highly recommend them."</p>
+                    <div class="rev-author">
+                        <div class="rev-avatar-wrap">
+                            <img class="rev-avatar-img" src="assets/profilepics/john_mclanigan.png" alt="John McLanigan" width="42" height="42" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="rev-avatar-fallback" aria-hidden="true">JM</div>
+                        </div>
+                        <div>
+                            <span class="rev-author-name">John McLanigan</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="review-card" role="listitem" aria-label="Review by R.P. Murphy">
+                    <div class="rev-card-top">
+                        <div class="rev-stars" aria-label="5 out of 5 stars">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <div class="rev-google-badge">
+                            <svg class="rev-google-g" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            <span>Google Review</span>
+                        </div>
+                    </div>
+                    <p class="rev-text">"Ed and Ed Jr. from Barton's did an incredible job taking down a huge Tulip Poplar tree about 6 stories high. This tree was in a corner against a fence bordering 3 properties. It was a tight fit, but they expertly took down the tree and completed the work in a day. I would definitely use them again."</p>
+                    <div class="rev-author">
+                        <div class="rev-avatar-wrap">
+                            <img class="rev-avatar-img" src="assets/profilepics/r.d._murphy" alt="R.P. Murphy" width="42" height="42" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="rev-avatar-fallback" aria-hidden="true">RM</div>
+                        </div>
+                        <div>
+                            <span class="rev-author-name">R.P. Murphy</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="rev-nav" aria-label="Review navigation">
+                <button class="rev-btn rev-btn-prev" id="rev-prev" aria-label="Previous reviews" disabled>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button class="rev-btn rev-btn-next" id="rev-next" aria-label="Next reviews">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg>
+                </button>
+            </div>
         </div>
     </div>
 </section>
@@ -2222,6 +2420,25 @@
                 form.reset();
             }, 3500);
         });
+    }
+
+    // Reviews carousel
+    const revTrack = document.getElementById('reviews-track');
+    const revPrev  = document.getElementById('rev-prev');
+    const revNext  = document.getElementById('rev-next');
+    if (revTrack && revPrev && revNext) {
+        function getCardStep() {
+            const card = revTrack.querySelector('.review-card');
+            return card ? card.offsetWidth + 22 : 320;
+        }
+        revPrev.addEventListener('click', () => revTrack.scrollBy({ left: -getCardStep(), behavior: 'smooth' }));
+        revNext.addEventListener('click', () => revTrack.scrollBy({ left:  getCardStep(), behavior: 'smooth' }));
+        function syncRevNav() {
+            revPrev.disabled = revTrack.scrollLeft < 4;
+            revNext.disabled = revTrack.scrollLeft + revTrack.clientWidth >= revTrack.scrollWidth - 4;
+        }
+        revTrack.addEventListener('scroll', syncRevNav, { passive: true });
+        syncRevNav();
     }
 })();
 </script>
