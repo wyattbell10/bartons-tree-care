@@ -2306,7 +2306,10 @@
 
             <div class="form-box">
                 <div class="form-box-title">Request a Free Quote</div>
-                <form id="quote-form" novalidate aria-label="Free quote request form">
+                <form id="quote-form" action="https://api.web3forms.com/submit" method="POST" aria-label="Free quote request form">
+                    <input type="hidden" name="access_key" value="b3ff2f1c-d0e9-4a06-8fbc-dcae978fab8e">
+                    <input type="hidden" name="subject" value="New Tree Service Request from Barton's Tree Care Website">
+                    <input type="hidden" name="from_name" value="Barton's Tree Care Website">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="f-name">Name</label>
@@ -2493,19 +2496,41 @@
         });
     });
 
-    // Contact form — visual-only confirmation (no backend)
+    // Contact form — submits to Web3Forms
     const form = document.getElementById('quote-form');
     if (form) {
-        form.addEventListener('submit', e => {
+        form.addEventListener('submit', async e => {
             e.preventDefault();
             const btn = form.querySelector('[type="submit"]');
-            btn.textContent = 'Message Sent';
+            btn.textContent = 'Sending...';
             btn.disabled = true;
-            setTimeout(() => {
-                btn.textContent = 'Request Quote';
-                btn.disabled = false;
-                form.reset();
-            }, 3500);
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: new FormData(form)
+                });
+                const data = await res.json();
+                if (data.success) {
+                    btn.textContent = 'Message Sent';
+                    setTimeout(() => {
+                        btn.textContent = 'Request Quote';
+                        btn.disabled = false;
+                        form.reset();
+                    }, 3500);
+                } else {
+                    btn.textContent = 'Something went wrong';
+                    setTimeout(() => {
+                        btn.textContent = 'Request Quote';
+                        btn.disabled = false;
+                    }, 3000);
+                }
+            } catch {
+                btn.textContent = 'Something went wrong';
+                setTimeout(() => {
+                    btn.textContent = 'Request Quote';
+                    btn.disabled = false;
+                }, 3000);
+            }
         });
     }
 
