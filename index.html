@@ -123,7 +123,7 @@
        RESET & BASE
     ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: auto; }
     body {
         font-family: var(--ff-body);
         font-size: 16px;
@@ -866,6 +866,17 @@
     }
     .contact-alt-tel:hover { color: var(--g700); }
 
+    .contact-person + .contact-person { margin-top: 8px; }
+    .contact-person-label {
+        display: block;
+        font-size: .7rem;
+        font-weight: 600;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        color: var(--ch500);
+        margin-bottom: 2px;
+    }
+
     .footer-facebook {
         display: inline-flex;
         align-items: center;
@@ -887,6 +898,17 @@
         font-size: .95rem;
         margin-top: 4px;
     }
+    .footer-person-label {
+        display: block;
+        font-size: .68rem;
+        font-weight: 600;
+        letter-spacing: .07em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.42);
+        margin-top: 14px;
+    }
+    .footer-person + .footer-person .footer-person-label { margin-top: 10px; }
+    .footer-person .footer-tel { margin-top: 2px; }
 
     /* ============================================================
        EMERGENCY BAND
@@ -1160,12 +1182,12 @@
     .footer {
         background: var(--ch900);
         color: rgba(255,255,255,.60);
-        padding: 60px 0 40px;
+        padding: 72px 0 48px;
     }
     .footer-grid {
         display: grid;
-        grid-template-columns: 1.35fr 1fr 1fr;
-        gap: 48px;
+        grid-template-columns: 1.35fr 1fr 1fr 1.1fr;
+        gap: 40px;
         margin-bottom: 48px;
     }
 
@@ -1230,6 +1252,53 @@
         letter-spacing: .04em;
     }
     .footer-col ul + h4 { margin-top: 22px; }
+
+    .footer-info-list {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .footer-info-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .footer-info-icon {
+        width: 15px;
+        height: 15px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .footer-info-icon svg {
+        width: 14px;
+        height: 14px;
+        stroke: rgba(255,255,255,.4);
+        fill: none;
+        stroke-width: 1.75;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .footer-info-icon svg.icon-fill {
+        stroke: none;
+        fill: rgba(255,255,255,.38);
+    }
+    .footer-info-text {
+        font-size: .94rem;
+        color: rgba(255,255,255,.56);
+        line-height: 1.3;
+    }
+    a.footer-info-text { transition: color var(--ease); }
+    a.footer-info-text:hover { color: var(--white); }
+    .footer-info-license { font-size: .82rem; color: rgba(255,255,255,.3); }
+    .footer-map {
+        width: 100%;
+        height: 300px;
+        border-radius: var(--r-sm);
+        overflow: hidden;
+    }
     .area-section .divider {
         background: rgba(106,184,135,.45);
         margin-top: 10px;
@@ -1379,6 +1448,7 @@
         .why-grid      { grid-template-columns: repeat(2, 1fr); }
         .review-card   { flex: 0 0 84%; }
         .footer-grid   { grid-template-columns: 1fr; gap: 28px; }
+        .footer-map    { height: 220px; }
         .form-row      { grid-template-columns: 1fr; }
 
         .hero-ctas { flex-direction: column; }
@@ -2256,11 +2326,20 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="contact-row-label">Phone</span>
-                        <div class="contact-row-val">
-                            <a href="tel:+14107100164">(410) 710-0164</a>
-                            <a href="tel:+14433063037" class="contact-alt-tel">(443) 306-3037</a>
-                        </div>
+                        <span class="contact-row-label">Owner's Phone</span>
+                        <div class="contact-row-val"><a href="tel:+14433063037">(443) 306-3037</a></div>
+                    </div>
+                </div>
+
+                <div class="contact-row">
+                    <div class="contact-row-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="contact-row-label">Arborist's Phone</span>
+                        <div class="contact-row-val"><a href="tel:+14107100164">(410) 710-0164</a></div>
                     </div>
                 </div>
 
@@ -2389,6 +2468,7 @@
     <div class="container">
         <div class="footer-grid">
 
+            <!-- Col 1: Company Info -->
             <div class="footer-brand">
                 <div class="logo">
                     <img src="assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
@@ -2398,16 +2478,47 @@
                     </div>
                 </div>
                 <p>Licensed tree care serving homeowners throughout Maryland since 1989. Located in Crofton, MD.</p>
-                <a class="footer-tel" href="tel:+14107100164" aria-label="Call (410) 710-0164">(410) 710-0164</a>
-                <a class="footer-tel footer-tel-alt" href="tel:+14433063037" aria-label="Call (443) 306-3037">(443) 306-3037</a>
-                <a class="footer-tel footer-email" href="mailto:info@bartonstreecare.com" aria-label="Email info@bartonstreecare.com">info@bartonstreecare.com</a>
-                <p class="footer-license">MD Tree Expert License #133 &amp; #1883</p>
-                <a class="footer-facebook" href="https://www.facebook.com/bartonstree" target="_blank" rel="noopener noreferrer" aria-label="Barton's Tree Care on Facebook">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                    Facebook
-                </a>
+                <div class="footer-info-list">
+                    <div class="footer-info-row">
+                        <div class="footer-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <span class="footer-info-text">Open 24 Hours</span>
+                    </div>
+                    <div class="footer-info-row">
+                        <div class="footer-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <a class="footer-info-text" href="tel:+14433063037">Owner: (443) 306-3037</a>
+                    </div>
+                    <div class="footer-info-row">
+                        <div class="footer-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <a class="footer-info-text" href="tel:+14107100164">Arborist: (410) 710-0164</a>
+                    </div>
+                    <div class="footer-info-row">
+                        <div class="footer-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <a class="footer-info-text" href="mailto:info@bartonstreecare.com">info@bartonstreecare.com</a>
+                    </div>
+                    <div class="footer-info-row">
+                        <div class="footer-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <span class="footer-info-text footer-info-license">Maryland Tree Expert License #133 &amp; #1883</span>
+                    </div>
+                    <div class="footer-info-row">
+                        <div class="footer-info-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" class="icon-fill"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </div>
+                        <a class="footer-info-text" href="https://www.facebook.com/bartonstree" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    </div>
+                </div>
             </div>
 
+            <!-- Col 2: Services -->
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul role="list">
@@ -2417,9 +2528,14 @@
                     <li><a href="#services">Stump Grinding</a></li>
                     <li><a href="#services">Lot Clearing</a></li>
                     <li><a href="#services">Risk Assessment</a></li>
+                    <li><a href="#services">Planting</a></li>
+                    <li><a href="#services">Construction Management Plans</a></li>
+                    <li><a href="#services">Fertilization &amp; Pest Control</a></li>
+                    <li><a href="#services">Cabling &amp; Bracing</a></li>
                 </ul>
             </div>
 
+            <!-- Col 3: Quick Links -->
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul role="list">
@@ -2429,14 +2545,23 @@
                     <li><a href="#contact">Request a Quote</a></li>
                     <li><a href="tel:+14107100164">Call Now</a></li>
                     <li><a href="https://www.facebook.com/bartonstree" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="#service-area">Service Areas</a></li>
                 </ul>
+            </div>
+
+            <!-- Col 4: Service Area Map -->
+            <div class="footer-col">
                 <h4>Service Area</h4>
-                <ul role="list">
-                    <li><a href="#service-area">Crofton &amp; Anne Arundel County</a></li>
-                    <li><a href="#service-area">Annapolis &amp; Central Maryland</a></li>
-                    <li><a href="#service-area">Howard, Montgomery &amp; Prince George's</a></li>
-                    <li><a href="#service-area">Baltimore County &amp; DC Metro</a></li>
-                </ul>
+                <div class="footer-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1592031.6136220973!2d-78.5562649388014!3d38.799544958058085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4a3bb86c3d29dd17%3A0x4d94984b11b5c648!2sBarton&#39;s%20Tree%20Care!5e0!3m2!1sen!2sus!4v1781988369976!5m2!1sen!2sus"
+                        style="border:0; width:100%; height:100%; display:block;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Barton's Tree Care service area map">
+                    </iframe>
+                </div>
             </div>
 
         </div>
@@ -2518,7 +2643,7 @@
             if (!target) return;
             e.preventDefault();
             const offset = header.offsetHeight + 16;
-            window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+            window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY - offset);
         });
     });
 
