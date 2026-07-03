@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tree Removal in Maryland | Barton's Tree Care</title>
-    <meta name="description" content="Expert tree removal in Maryland. Barton's Tree Care handles hazardous, storm-damaged, and difficult removals with licensed expertise and specialized rigging. Call (410) 710-0164.">
+    <title>Our Work | Barton's Tree Care</title>
+    <meta name="description" content="See Barton's Tree Care in action — crane work, tree removals, storm damage remediation, pruning, and before & after results across Maryland.">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/bartons_logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/logos/bartons_logo.png">
-    <link rel="apple-touch-icon" href="assets/logos/bartons_logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logos/bartons_logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logos/bartons_logo.png">
+    <link rel="apple-touch-icon" href="../assets/logos/bartons_logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -259,6 +259,8 @@
     }
     .main-nav a:hover { color: var(--g800); }
     .main-nav a:hover::after { width: 100%; }
+    .main-nav a.active { color: var(--g800); }
+    .main-nav a.active::after { width: 100%; }
 
     .header-right { display: flex; align-items: center; gap: 14px; }
     .header-tel {
@@ -329,7 +331,7 @@
     ============================================================ */
     .page-hero {
         position: relative;
-        min-height: 460px;
+        min-height: 420px;
         display: flex;
         align-items: center;
         padding-top: 72px;
@@ -356,7 +358,6 @@
         position: relative;
         z-index: 2;
         padding: 72px 0 80px;
-        max-width: 760px;
     }
     .page-hero-eyebrow {
         display: inline-flex;
@@ -384,179 +385,105 @@
     .page-hero h1 {
         color: var(--white);
         text-transform: uppercase;
-        margin-bottom: 16px;
+        margin-bottom: 10px;
     }
     .page-hero h1 .accent { color: var(--g300); }
     .page-hero-sub {
-        font-size: 1.12rem;
+        font-size: 1.1rem;
         color: rgba(255,255,255,.76);
         max-width: 580px;
         line-height: 1.72;
-        margin-bottom: 32px;
-    }
-    .page-hero-ctas {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
+        margin-top: 16px;
     }
 
     /* ============================================================
-       SERVICE INTRO
+       CATEGORY NAV
     ============================================================ */
-    .service-intro {
-        max-width: 760px;
-        margin: 0 auto;
-        text-align: center;
-    }
-    .service-intro p {
-        font-size: 1.1rem;
-        color: var(--ch600);
-        line-height: 1.78;
-    }
-
-    /* ============================================================
-       REASONS GRID
-    ============================================================ */
-    .reasons-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-    .reason-card {
+    .category-nav {
         background: var(--white);
-        border-radius: var(--r-md);
-        padding: 32px 28px;
+        border-bottom: 1px solid var(--cr300);
         box-shadow: var(--sh-sm);
-        border-left: 4px solid var(--g500);
+        position: sticky;
+        top: 72px;
+        z-index: 50;
+    }
+    .category-nav-inner {
         display: flex;
-        gap: 20px;
-        align-items: flex-start;
+        gap: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
-    .reason-card-icon {
-        width: 48px; height: 48px;
-        flex-shrink: 0;
-        background: var(--cr200);
-        border-radius: var(--r-sm);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .reason-card-icon svg {
-        width: 22px; height: 22px;
-        stroke: var(--g600);
-        fill: none;
-        stroke-width: 1.8;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-    .reason-card-body h3 {
-        color: var(--g900);
-        margin-bottom: 8px;
-        font-size: 1.1rem;
-    }
-    .reason-card-body p {
-        color: var(--ch600);
-        font-size: .95rem;
-        line-height: 1.65;
-    }
-
-    /* ============================================================
-       PROCESS STEPS
-    ============================================================ */
-    .process-steps {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-        counter-reset: step;
-    }
-    .process-step {
-        text-align: center;
-        padding: 36px 24px;
-        background: var(--cr100);
-        border-radius: var(--r-md);
-        border: 1px solid var(--cr300);
-        position: relative;
-    }
-    .process-step-num {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 52px; height: 52px;
-        border-radius: 50%;
-        background: var(--g700);
-        color: var(--white);
+    .category-nav-inner::-webkit-scrollbar { display: none; }
+    .cat-link {
+        display: block;
+        padding: 16px 22px;
         font-family: var(--ff-display);
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin: 0 auto 20px;
-    }
-    .process-step h3 {
-        color: var(--g900);
-        margin-bottom: 10px;
-    }
-    .process-step p {
+        font-size: .82rem;
+        font-weight: 600;
+        letter-spacing: .08em;
+        text-transform: uppercase;
         color: var(--ch600);
-        font-size: .95rem;
-        line-height: 1.65;
+        white-space: nowrap;
+        border-bottom: 3px solid transparent;
+        transition: color var(--ease), border-color var(--ease);
     }
+    .cat-link:hover { color: var(--g800); border-bottom-color: var(--g400); }
+    .cat-link.active { color: var(--g800); border-bottom-color: var(--g600); }
 
     /* ============================================================
-       TRUST SECTION
+       GALLERY GRID
     ============================================================ */
-    .section-dark {
-        background: var(--g900);
-    }
-    .section-dark .section-header h2 { color: var(--white); }
-    .section-dark .section-header p { color: rgba(255,255,255,.65); }
-    .section-dark .section-label { color: var(--g300); }
-    .section-dark .divider { background: var(--g500); }
-
-    .trust-grid {
+    .gallery-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+        gap: 22px;
     }
-    .trust-card {
-        background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.12);
+
+    .gallery-card {
         border-radius: var(--r-md);
-        padding: 36px 28px;
-        text-align: center;
+        overflow: hidden;
+        background: var(--white);
+        box-shadow: var(--sh-md);
+        transition: transform var(--ease), box-shadow var(--ease);
+        margin: 0;
     }
-    .trust-card-icon {
-        width: 60px; height: 60px;
-        border-radius: 50%;
-        background: rgba(106,184,135,.15);
-        border: 1px solid rgba(106,184,135,.25);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
+    .gallery-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--sh-lg);
     }
-    .trust-card-icon svg {
-        width: 26px; height: 26px;
-        stroke: var(--g300);
-        fill: none;
-        stroke-width: 1.8;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+    .gallery-img-wrap {
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: var(--ch800);
     }
-    .trust-card h3 {
-        color: var(--white);
-        margin-bottom: 10px;
-        font-size: 1.12rem;
+    .gallery-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transition: transform .4s ease;
     }
-    .trust-card p {
-        color: rgba(255,255,255,.62);
-        font-size: .92rem;
-        line-height: 1.65;
+    .gallery-card:hover .gallery-img-wrap img {
+        transform: scale(1.04);
+    }
+    .gallery-caption {
+        padding: 11px 16px;
+        font-size: .76rem;
+        font-weight: 700;
+        color: var(--ch600);
+        font-family: var(--ff-display);
+        letter-spacing: .09em;
+        text-transform: uppercase;
+        border-top: 1px solid var(--cr300);
     }
 
     /* ============================================================
        CTA BAND
     ============================================================ */
     .cta-band {
-        background: var(--ch900);
+        background: var(--g900);
         padding: 72px 0;
         text-align: center;
     }
@@ -769,7 +696,8 @@
        RESPONSIVE
     ============================================================ */
     @media (max-width: 1024px) {
-        .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+        .gallery-grid  { grid-template-columns: repeat(2, 1fr); }
+        .footer-grid   { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
 
     @media (max-width: 768px) {
@@ -782,21 +710,19 @@
         .mobile-call       { display: block; }
         body               { padding-bottom: 66px; }
 
-        .reasons-grid   { grid-template-columns: 1fr; }
-        .process-steps  { grid-template-columns: 1fr; }
-        .trust-grid     { grid-template-columns: 1fr; }
-        .page-hero-ctas { flex-direction: column; align-items: flex-start; }
-        .footer-grid    { grid-template-columns: 1fr; gap: 28px; }
-        .footer-bottom  { flex-direction: column; align-items: flex-start; }
-        .footer-map     { height: 220px; }
-        .cta-band-btns  { flex-direction: column; align-items: center; }
+        .gallery-grid  { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+        .footer-grid   { grid-template-columns: 1fr; gap: 28px; }
+        .footer-bottom { flex-direction: column; align-items: flex-start; }
+        .footer-map    { height: 220px; }
+        .cta-band-btns { flex-direction: column; align-items: center; }
         .btn-cta-solid,
         .btn-cta-outline { width: 100%; max-width: 340px; justify-content: center; }
+        .gallery-card:hover { transform: none; }
     }
 
     @media (max-width: 480px) {
-        .page-hero { min-height: 380px; }
-        .reason-card { flex-direction: column; gap: 14px; }
+        .gallery-grid { grid-template-columns: 1fr; }
+        .page-hero { min-height: 360px; }
     }
 
     /* ============================================================
@@ -830,8 +756,8 @@
     <div class="container">
         <div class="header-inner">
 
-            <a class="logo" href="index.html" aria-label="Barton's Tree Care — Home">
-                <img src="assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
+            <a class="logo" href="/" aria-label="Barton's Tree Care — Home">
+                <img src="../assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
                 <div>
                     <span class="logo-name">Barton's Tree Care</span>
                     <span class="logo-sub">Tree Service</span>
@@ -840,10 +766,10 @@
 
             <nav aria-label="Main navigation">
                 <ul class="main-nav" role="list">
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="index.html#why">Why Choose Us</a></li>
-                    <li><a href="our-work.html">Our Work</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="/#services">Services</a></li>
+                    <li><a href="/#why">Why Choose Us</a></li>
+                    <li><a href="/our-work/" class="active">Our Work</a></li>
+                    <li><a href="/#contact">Contact</a></li>
                 </ul>
             </nav>
 
@@ -865,13 +791,13 @@
 
 <!-- Mobile nav drawer -->
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="index.html#services">Services</a>
-    <a href="index.html#why">Why Choose Us</a>
-    <a href="our-work.html">Our Work</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="/#services">Services</a>
+    <a href="/#why">Why Choose Us</a>
+    <a href="/our-work/">Our Work</a>
+    <a href="/#contact">Contact</a>
     <div class="mobile-nav-cta">
         <a class="btn btn-primary" href="tel:+14107100164">Call (410) 710-0164</a>
-        <a class="btn btn-ghost" href="index.html#contact">Request a Quote</a>
+        <a class="btn btn-ghost" href="/#contact">Request a Quote</a>
     </div>
 </nav>
 
@@ -885,109 +811,78 @@
         <div class="page-hero-content">
             <div class="page-hero-eyebrow" aria-hidden="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 22V12M8 6L3 3l3 7H3l5 5h3M16 6l5-3-3 7h3l-5 5h-3"/>
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
                 </svg>
-                Tree Service · Maryland
+                Featured Work
             </div>
             <h1 id="page-hero-h1">
-                Expert Tree Removal<br>
-                <span class="accent">Safe, Complete, and Professional</span>
+                Our Work<br>
+                <span class="accent">Professional Tree Care Across Maryland</span>
             </h1>
-            <p class="page-hero-sub">When a tree needs to come down, we get it done safely, cleanly, and completely, using the right equipment and technique for every job.</p>
-            <div class="page-hero-ctas">
-                <a class="btn btn-hero-solid" href="tel:+14107100164" aria-label="Call Barton's Tree Care">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                    Call (410) 710-0164
-                </a>
-                <a class="btn btn-hero-outline" href="index.html#contact">Request a Free Quote</a>
-            </div>
+            <p class="page-hero-sub">A look at crane work, removals, storm damage remediation, pruning, and cleanup performed by Barton's Tree Care.</p>
         </div>
     </div>
 </section>
 
 
 <!-- ===================================================
-     INTRO
+     CATEGORY NAV
 ==================================================== -->
-<section class="section" aria-label="Service overview">
+<nav class="category-nav" aria-label="Gallery categories">
     <div class="container">
-        <div class="service-intro">
-            <span class="section-label">What to Know</span>
-            <div class="divider" aria-hidden="true"></div>
-            <p>Removing a tree is rarely a simple decision. Whether it's dead, diseased, hazardous, or just in the wrong place, Barton's Tree Care brings 30+ years of experience and licensed expertise to every removal. We handle everything from small residential trees to large canopy removals requiring specialized rigging and crane work, and we leave the property clean when we're done.</p>
+        <div class="category-nav-inner">
+            <a class="cat-link" href="#specialized-equipment">Specialized Equipment</a>
+            <a class="cat-link" href="#tree-removal">Tree Removal</a>
+            <a class="cat-link" href="#storm-damage">Storm Damage</a>
+            <a class="cat-link" href="#pruning">Pruning</a>
         </div>
     </div>
-</section>
+</nav>
 
 
 <!-- ===================================================
-     WHEN YOU NEED TREE REMOVAL
+     SPECIALIZED EQUIPMENT
 ==================================================== -->
-<section class="section section-alt" aria-labelledby="reasons-h2">
+<section class="section" id="specialized-equipment" aria-labelledby="equipment-h2">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">Know the Signs</span>
+            <span class="section-label">Specialized Equipment</span>
             <div class="divider" aria-hidden="true"></div>
-            <h2 id="reasons-h2">When a Tree Should Be Removed</h2>
-            <p>Trees don't always give obvious warning signs. These are the situations where removal is the right call.</p>
+            <h2 id="equipment-h2">Specialized Equipment</h2>
+            <p>Crane-assisted removals, bucket truck access, and precision rigging for difficult residential tree work: jobs that require more than a chainsaw and a ladder.</p>
         </div>
-        <div class="reasons-grid">
+        <div class="gallery-grid" role="list" aria-label="Specialized equipment photos">
 
-            <div class="reason-card">
-                <div class="reason-card-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                        <line x1="12" y1="9" x2="12" y2="13"/>
-                        <line x1="12" y1="17" x2="12.01" y2="17"/>
-                    </svg>
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/crane-work/crane_work_5.jpg"
+                         alt="Crane-assisted tree removal over a residential structure in Maryland"
+                         loading="lazy">
                 </div>
-                <div class="reason-card-body">
-                    <h3>Dead or Diseased Trees</h3>
-                    <p>A dead or dying tree loses structural integrity fast. Decay accelerates through the wood, making sudden failure unpredictable, especially during wind events. Removal before failure is significantly safer and cheaper than emergency work after.</p>
-                </div>
-            </div>
+                <figcaption class="gallery-caption">Crane-Assisted Tree Removal</figcaption>
+            </figure>
 
-            <div class="reason-card">
-                <div class="reason-card-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9"/>
-                        <polyline points="13 11 9 17 15 17 11 23"/>
-                    </svg>
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/crane-work/crane_work_2.jpg"
+                         alt="Specialized rigging and access equipment for tree removal"
+                         style="object-position: center 20%"
+                         loading="lazy">
                 </div>
-                <div class="reason-card-body">
-                    <h3>Storm Damage</h3>
-                    <p>A tree that's been struck, split, or partially uprooted by a storm often has hidden structural damage that makes it unpredictable. Even if it's still standing, it may not survive the next storm, or the one after that.</p>
-                </div>
-            </div>
+                <figcaption class="gallery-caption">Specialized Equipment Access</figcaption>
+            </figure>
 
-            <div class="reason-card">
-                <div class="reason-card-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                        <polyline points="9 22 9 12 15 12 15 22"/>
-                    </svg>
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/crane-work/crane_work_3.jpg"
+                         alt="Elevated access equipment used for difficult canopy tree removal"
+                         style="object-position: center 15%"
+                         loading="lazy">
                 </div>
-                <div class="reason-card-body">
-                    <h3>Too Close to Structures</h3>
-                    <p>Trees growing toward your home, outbuildings, power lines, or fencing create real long-term risk. Root intrusion, branch failure, and storm lean all become more dangerous the closer a tree grows to a structure.</p>
-                </div>
-            </div>
-
-            <div class="reason-card">
-                <div class="reason-card-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="12" y1="8" x2="12" y2="12"/>
-                        <line x1="12" y1="16" x2="12.01" y2="16"/>
-                    </svg>
-                </div>
-                <div class="reason-card-body">
-                    <h3>Root Damage or Decay</h3>
-                    <p>Root problems are often invisible until it's too late. Girdling roots, soil heave around the base, mushrooms or fungal growth at the trunk, and visible decay are all warning signs that a tree's foundation is compromised.</p>
-                </div>
-            </div>
+                <figcaption class="gallery-caption">Elevated Access for Difficult Removals</figcaption>
+            </figure>
 
         </div>
     </div>
@@ -995,35 +890,44 @@
 
 
 <!-- ===================================================
-     OUR APPROACH
+     TREE REMOVAL
 ==================================================== -->
-<section class="section" aria-labelledby="approach-h2">
+<section class="section section-alt" id="tree-removal" aria-labelledby="removal-h2">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">How We Work</span>
+            <span class="section-label">Complete Removals</span>
             <div class="divider" aria-hidden="true"></div>
-            <h2 id="approach-h2">Our Approach</h2>
-            <p>Every removal follows the same disciplined process: assess first, rig right, and leave clean.</p>
+            <h2 id="removal-h2">Tree Removal</h2>
+            <p>Hazardous, unwanted, and difficult trees removed cleanly, from small residential trees to large canopy removal projects.</p>
         </div>
-        <div class="process-steps">
+        <div class="gallery-grid" role="list" aria-label="Tree removal photos">
 
-            <div class="process-step">
-                <div class="process-step-num" aria-hidden="true">1</div>
-                <h3>Assessment</h3>
-                <p>We start with a thorough evaluation of the tree, including its lean, structural condition, proximity to structures, and available access. This informs every decision we make about rigging approach and sequencing. We don't just start cutting.</p>
-            </div>
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/removals/tree_removal_2.jpg"
+                         alt="Large tree removal on a residential property in Maryland"
+                         loading="lazy">
+                </div>
+                <figcaption class="gallery-caption">Large tree removal</figcaption>
+            </figure>
 
-            <div class="process-step">
-                <div class="process-step-num" aria-hidden="true">2</div>
-                <h3>Specialized Rigging</h3>
-                <p>Complex removals require controlled sectioning and precision rigging to dictate exactly where each piece lands. We use the right technique for the job, whether that's standard climbing and rigging or crane-assisted removal for large or difficult trees.</p>
-            </div>
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/removals/tree_removal_3.jpg"
+                         alt="Hazardous canopy tree removal by Barton's Tree Care"
+                         loading="lazy">
+                </div>
+                <figcaption class="gallery-caption">Hazardous canopy removal</figcaption>
+            </figure>
 
-            <div class="process-step">
-                <div class="process-step-num" aria-hidden="true">3</div>
-                <h3>Complete Cleanup</h3>
-                <p>Every job ends with a thorough cleanup. Limbs, brush, and debris are hauled out. Stumps can be ground below grade or left flush. Your call. We don't consider the job done until the property is clear.</p>
-            </div>
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/removals/tree_removal_4.jpg"
+                         alt="Complete tree removal and property cleanup in Maryland"
+                         loading="lazy">
+                </div>
+                <figcaption class="gallery-caption">Complete removals &amp; cleanup</figcaption>
+            </figure>
 
         </div>
     </div>
@@ -1031,48 +935,93 @@
 
 
 <!-- ===================================================
-     WHY BARTON'S
+     STORM DAMAGE
 ==================================================== -->
-<section class="section section-dark" aria-labelledby="trust-h2">
+<section class="section" id="storm-damage" aria-labelledby="storm-h2">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">Why Choose Us</span>
+            <span class="section-label">Emergency Response</span>
             <div class="divider" aria-hidden="true"></div>
-            <h2 id="trust-h2">Why Barton's Tree Care</h2>
-            <p>Licensed, experienced, and equipped for the work that other companies won't touch.</p>
+            <h2 id="storm-h2">Storm Damage</h2>
+            <p>Fast response for storm-damaged trees, including trees on structures, blocked driveways, and hazardous lean situations.</p>
         </div>
-        <div class="trust-grid">
+        <div class="gallery-grid" role="list" aria-label="Storm damage remediation photos">
 
-            <div class="trust-card">
-                <div class="trust-card-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="8" r="4"/>
-                        <path d="M12 14c-5 0-8 2-8 4v2h16v-2c0-2-3-4-8-4z"/>
-                    </svg>
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/storm-damage/storm_damage_1.jpg"
+                         alt="Storm-damaged tree resting on a residential structure in Maryland"
+                         loading="lazy">
                 </div>
-                <h3>30+ Years Experience</h3>
-                <p>Ed Barton III has been doing tree work in Maryland since 1989. That's three decades of removals, storm response, and complex rigging jobs, the kind of experience that makes the difference on difficult trees.</p>
-            </div>
+                <figcaption class="gallery-caption">Tree on structure</figcaption>
+            </figure>
 
-            <div class="trust-card">
-                <div class="trust-card-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    </svg>
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/storm-damage/storm_damage_2.jpg"
+                         alt="Fallen tree remediation and removal after storm damage"
+                         loading="lazy">
                 </div>
-                <h3>Maryland Licensed</h3>
-                <p>We hold MD Tree Expert License #133 &amp; #1883. You're working with properly licensed professionals who carry the right insurance, not a crew that showed up in a truck.</p>
-            </div>
+                <figcaption class="gallery-caption">Fallen tree remediation</figcaption>
+            </figure>
 
-            <div class="trust-card">
-                <div class="trust-card-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                    </svg>
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/storm-damage/storm_damage_3.jpg"
+                         alt="Emergency storm damage tree response by Barton's Tree Care"
+                         style="object-position: center 30%"
+                         loading="lazy">
                 </div>
-                <h3>Crane &amp; Rigging Expertise</h3>
-                <p>Not every company has the equipment or skill for complex removals. Barton's has been doing high-risk, precision rigging work for decades, including crane-assisted removals that most crews won't attempt.</p>
-            </div>
+                <figcaption class="gallery-caption">Storm Emergency Response</figcaption>
+            </figure>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     PRUNING
+==================================================== -->
+<section class="section section-alt" id="pruning" aria-labelledby="pruning-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Tree Health</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="pruning-h2">Pruning</h2>
+            <p>All phases of tree pruning with an emphasis on preserving health, safety, and structure: from crown thinning to deadwood removal.</p>
+        </div>
+        <div class="gallery-grid" role="list" aria-label="Pruning photos">
+
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/pruning/pruning_1.jpg"
+                         alt="Crown pruning on a residential tree in Maryland"
+                         style="object-position: center top"
+                         loading="lazy">
+                </div>
+                <figcaption class="gallery-caption">Crown Pruning</figcaption>
+            </figure>
+
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/pruning/pruning_2.jpg"
+                         alt="Structural pruning to improve tree form and reduce failure risk"
+                         style="object-position: center 25%"
+                         loading="lazy">
+                </div>
+                <figcaption class="gallery-caption">Structural Pruning</figcaption>
+            </figure>
+
+            <figure class="gallery-card" role="listitem">
+                <div class="gallery-img-wrap">
+                    <img src="../assets/gallery/pruning/pruning_3.jpg"
+                         alt="Elevated canopy pruning using specialized equipment"
+                         style="object-position: center 10%"
+                         loading="lazy">
+                </div>
+                <figcaption class="gallery-caption">Elevated Canopy Access</figcaption>
+            </figure>
 
         </div>
     </div>
@@ -1084,8 +1033,8 @@
 ==================================================== -->
 <section class="cta-band" aria-labelledby="cta-h2">
     <div class="container">
-        <h2 id="cta-h2">Ready to Remove That Tree?</h2>
-        <p>Call Barton's Tree Care for a free assessment and quote. Serving homeowners across Maryland since 1989.</p>
+        <h2 id="cta-h2">Ready to Get Started?</h2>
+        <p>Call Barton's Tree Care for a free quote. Licensed Maryland Tree Experts since 1989.</p>
         <div class="cta-band-btns">
             <a class="btn btn-cta-solid" href="tel:+14107100164" aria-label="Call Barton's Tree Care">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1093,7 +1042,7 @@
                 </svg>
                 Call (410) 710-0164
             </a>
-            <a class="btn btn-cta-outline" href="index.html#contact">Request a Free Quote</a>
+            <a class="btn btn-cta-outline" href="/#contact">Request a Free Quote</a>
         </div>
     </div>
 </section>
@@ -1109,7 +1058,7 @@
             <!-- Col 1: Company Info -->
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
+                    <img src="../assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
                     <div>
                         <span class="logo-name">Barton's Tree Care</span>
                         <span class="logo-sub">Tree Service · Est. 1989</span>
@@ -1160,16 +1109,16 @@
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul role="list">
-                    <li><a href="tree-removal.html">Tree Removal</a></li>
-                    <li><a href="storm-damage.html">Storm Damage Remediation</a></li>
-                    <li><a href="pruning.html">Pruning</a></li>
-                    <li><a href="index.html#services">Stump Grinding</a></li>
-                    <li><a href="index.html#services">Lot Clearing</a></li>
-                    <li><a href="index.html#services">Risk Assessment</a></li>
-                    <li><a href="index.html#services">Planting</a></li>
-                    <li><a href="index.html#services">Construction Management Plans</a></li>
-                    <li><a href="index.html#services">Fertilization &amp; Pest Control</a></li>
-                    <li><a href="index.html#services">Cabling &amp; Bracing</a></li>
+                    <li><a href="/tree-removal/">Tree Removal</a></li>
+                    <li><a href="/storm-damage/">Storm Damage Remediation</a></li>
+                    <li><a href="/pruning/">Pruning</a></li>
+                    <li><a href="/#services">Stump Grinding</a></li>
+                    <li><a href="/#services">Lot Clearing</a></li>
+                    <li><a href="/#services">Risk Assessment</a></li>
+                    <li><a href="/#services">Planting</a></li>
+                    <li><a href="/#services">Construction Management Plans</a></li>
+                    <li><a href="/#services">Fertilization &amp; Pest Control</a></li>
+                    <li><a href="/#services">Cabling &amp; Bracing</a></li>
                 </ul>
             </div>
 
@@ -1177,14 +1126,14 @@
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul role="list">
-                    <li><a href="index.html#why">Why Choose Us</a></li>
-                    <li><a href="index.html#reviews">Customer Reviews</a></li>
-                    <li><a href="our-work.html">Our Work</a></li>
-                    <li><a href="index.html#contact">Request a Quote</a></li>
+                    <li><a href="/#why">Why Choose Us</a></li>
+                    <li><a href="/#reviews">Customer Reviews</a></li>
+                    <li><a href="/our-work/">Our Work</a></li>
+                    <li><a href="/#contact">Request a Quote</a></li>
                     <li><a href="tel:+14107100164">Call Now</a></li>
                     <li><a href="https://www.facebook.com/bartonstree" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                    <li><a href="index.html#service-area">Service Areas</a></li>
-                    <li><a href="review-request.html">Leave a Review</a></li>
+                    <li><a href="/#service-area">Service Areas</a></li>
+                    <li><a href="/leave-a-review/">Leave a Review</a></li>
                 </ul>
             </div>
 

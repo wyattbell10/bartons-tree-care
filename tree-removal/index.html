@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storm Damage Tree Remediation in Maryland | Barton's Tree Care</title>
-    <meta name="description" content="Storm damage tree remediation in Maryland. Trees on structures, fallen trees, hazardous leans. Barton's Tree Care responds fast with licensed expertise and crane capability. Call (410) 710-0164.">
+    <title>Tree Removal in Maryland | Barton's Tree Care</title>
+    <meta name="description" content="Expert tree removal in Maryland. Barton's Tree Care handles hazardous, storm-damaged, and difficult removals with licensed expertise and specialized rigging. Call (410) 710-0164.">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/bartons_logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/logos/bartons_logo.png">
-    <link rel="apple-touch-icon" href="assets/logos/bartons_logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logos/bartons_logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logos/bartons_logo.png">
+    <link rel="apple-touch-icon" href="../assets/logos/bartons_logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -390,7 +390,7 @@
     .page-hero-sub {
         font-size: 1.12rem;
         color: rgba(255,255,255,.76);
-        max-width: 600px;
+        max-width: 580px;
         line-height: 1.72;
         margin-bottom: 32px;
     }
@@ -413,40 +413,6 @@
         color: var(--ch600);
         line-height: 1.78;
     }
-
-    /* ============================================================
-       SCOPE NOTE
-    ============================================================ */
-    .scope-note {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-        background: var(--cr200);
-        border: 1px solid var(--cr300);
-        border-left: 4px solid var(--earth600);
-        border-radius: var(--r-md);
-        padding: 22px 24px;
-        margin-top: 32px;
-        max-width: 760px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .scope-note svg {
-        width: 20px; height: 20px;
-        stroke: var(--earth600);
-        fill: none;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        flex-shrink: 0;
-        margin-top: 2px;
-    }
-    .scope-note p {
-        font-size: .96rem;
-        color: var(--ch700);
-        line-height: 1.65;
-    }
-    .scope-note strong { color: var(--ch800); }
 
     /* ============================================================
        REASONS GRID
@@ -501,6 +467,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 32px;
+        counter-reset: step;
     }
     .process-step {
         text-align: center;
@@ -508,6 +475,7 @@
         background: var(--cr100);
         border-radius: var(--r-md);
         border: 1px solid var(--cr300);
+        position: relative;
     }
     .process-step-num {
         display: inline-flex;
@@ -824,7 +792,6 @@
         .cta-band-btns  { flex-direction: column; align-items: center; }
         .btn-cta-solid,
         .btn-cta-outline { width: 100%; max-width: 340px; justify-content: center; }
-        .scope-note     { flex-direction: column; gap: 10px; }
     }
 
     @media (max-width: 480px) {
@@ -863,8 +830,8 @@
     <div class="container">
         <div class="header-inner">
 
-            <a class="logo" href="index.html" aria-label="Barton's Tree Care — Home">
-                <img src="assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
+            <a class="logo" href="/" aria-label="Barton's Tree Care — Home">
+                <img src="../assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
                 <div>
                     <span class="logo-name">Barton's Tree Care</span>
                     <span class="logo-sub">Tree Service</span>
@@ -873,10 +840,10 @@
 
             <nav aria-label="Main navigation">
                 <ul class="main-nav" role="list">
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="index.html#why">Why Choose Us</a></li>
-                    <li><a href="our-work.html">Our Work</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="/#services">Services</a></li>
+                    <li><a href="/#why">Why Choose Us</a></li>
+                    <li><a href="/our-work/">Our Work</a></li>
+                    <li><a href="/#contact">Contact</a></li>
                 </ul>
             </nav>
 
@@ -898,13 +865,13 @@
 
 <!-- Mobile nav drawer -->
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="index.html#services">Services</a>
-    <a href="index.html#why">Why Choose Us</a>
-    <a href="our-work.html">Our Work</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="/#services">Services</a>
+    <a href="/#why">Why Choose Us</a>
+    <a href="/our-work/">Our Work</a>
+    <a href="/#contact">Contact</a>
     <div class="mobile-nav-cta">
         <a class="btn btn-primary" href="tel:+14107100164">Call (410) 710-0164</a>
-        <a class="btn btn-ghost" href="index.html#contact">Request a Quote</a>
+        <a class="btn btn-ghost" href="/#contact">Request a Quote</a>
     </div>
 </nav>
 
@@ -918,16 +885,15 @@
         <div class="page-hero-content">
             <div class="page-hero-eyebrow" aria-hidden="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9"/>
-                    <polyline points="13 11 9 17 15 17 11 23"/>
+                    <path d="M12 22V12M8 6L3 3l3 7H3l5 5h3M16 6l5-3-3 7h3l-5 5h-3"/>
                 </svg>
-                Emergency Response · Maryland
+                Tree Service · Maryland
             </div>
             <h1 id="page-hero-h1">
-                Storm Damage Tree Remediation<br>
-                <span class="accent">Fast. Safe. Fully Cleared.</span>
+                Expert Tree Removal<br>
+                <span class="accent">Safe, Complete, and Professional</span>
             </h1>
-            <p class="page-hero-sub">Trees on structures. Fallen trees blocking access. Hazardous leans. We respond fast, work under pressure, and know the difference between tree work and structural repair.</p>
+            <p class="page-hero-sub">When a tree needs to come down, we get it done safely, cleanly, and completely, using the right equipment and technique for every job.</p>
             <div class="page-hero-ctas">
                 <a class="btn btn-hero-solid" href="tel:+14107100164" aria-label="Call Barton's Tree Care">
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -935,7 +901,7 @@
                     </svg>
                     Call (410) 710-0164
                 </a>
-                <a class="btn btn-hero-outline" href="index.html#contact">Request a Free Quote</a>
+                <a class="btn btn-hero-outline" href="/#contact">Request a Free Quote</a>
             </div>
         </div>
     </div>
@@ -950,58 +916,24 @@
         <div class="service-intro">
             <span class="section-label">What to Know</span>
             <div class="divider" aria-hidden="true"></div>
-            <p>When a storm brings a tree down on your home, car, or property, you need a crew that can work safely under pressure and knows exactly where tree work ends and structural repair begins. Barton's Tree Care handles the tree: removal, rigging, cleanup, and stabilization. We bring 30+ years of experience, crane and rigging capability, and a methodical approach even in chaotic conditions.</p>
-        </div>
-        <div class="scope-note" role="note">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
-            <p><strong>Our scope is the tree.</strong> We do not perform roofing, siding, structural, or interior repairs. We'll remove the tree cleanly and safely. Then you can coordinate with contractors for the structural side. We're upfront about this so you can plan accordingly.</p>
+            <p>Removing a tree is rarely a simple decision. Whether it's dead, diseased, hazardous, or just in the wrong place, Barton's Tree Care brings 30+ years of experience and licensed expertise to every removal. We handle everything from small residential trees to large canopy removals requiring specialized rigging and crane work, and we leave the property clean when we're done.</p>
         </div>
     </div>
 </section>
 
 
 <!-- ===================================================
-     WHEN YOU NEED THIS SERVICE
+     WHEN YOU NEED TREE REMOVAL
 ==================================================== -->
 <section class="section section-alt" aria-labelledby="reasons-h2">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">Common Situations</span>
+            <span class="section-label">Know the Signs</span>
             <div class="divider" aria-hidden="true"></div>
-            <h2 id="reasons-h2">When You Need Storm Damage Remediation</h2>
-            <p>These are the situations we handle, and the ones that require professionals with the right equipment.</p>
+            <h2 id="reasons-h2">When a Tree Should Be Removed</h2>
+            <p>Trees don't always give obvious warning signs. These are the situations where removal is the right call.</p>
         </div>
         <div class="reasons-grid">
-
-            <div class="reason-card">
-                <div class="reason-card-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                        <polyline points="9 22 9 12 15 12 15 22"/>
-                    </svg>
-                </div>
-                <div class="reason-card-body">
-                    <h3>Tree on a Structure</h3>
-                    <p>A tree resting on your home, garage, or outbuilding creates immediate and compounding risk. Every shift of the tree (from wind, rain, or cooling) can increase structural damage. We can safely remove the tree without making the damage to the structure worse.</p>
-                </div>
-            </div>
-
-            <div class="reason-card">
-                <div class="reason-card-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <line x1="3" y1="12" x2="21" y2="12"/>
-                        <path d="M12 5l7 7-7 7"/>
-                    </svg>
-                </div>
-                <div class="reason-card-body">
-                    <h3>Fallen or Blocking Trees</h3>
-                    <p>Trees blocking driveways, roads, or access points need to be dealt with quickly and efficiently. We can section and remove fallen trees, including large ones that require crane access or specialized rigging to work safely around other structures.</p>
-                </div>
-            </div>
 
             <div class="reason-card">
                 <div class="reason-card-icon" aria-hidden="true">
@@ -1012,8 +944,8 @@
                     </svg>
                 </div>
                 <div class="reason-card-body">
-                    <h3>Hazardous Lean or Partial Failure</h3>
-                    <p>A tree that partially failed or is now leaning heavily after a storm can complete that failure without warning. Don't wait on this one. A tree that's visibly compromised after a storm should be assessed by a professional before the next weather event.</p>
+                    <h3>Dead or Diseased Trees</h3>
+                    <p>A dead or dying tree loses structural integrity fast. Decay accelerates through the wood, making sudden failure unpredictable, especially during wind events. Removal before failure is significantly safer and cheaper than emergency work after.</p>
                 </div>
             </div>
 
@@ -1025,8 +957,35 @@
                     </svg>
                 </div>
                 <div class="reason-card-body">
-                    <h3>Hanging Limbs &amp; Widowmakers</h3>
-                    <p>Storm-broken branches caught in the canopy (widowmakers) are extremely dangerous. They look stable, but they're not. They need to be removed by trained professionals with proper equipment. Do not work or spend time underneath them while they're still there.</p>
+                    <h3>Storm Damage</h3>
+                    <p>A tree that's been struck, split, or partially uprooted by a storm often has hidden structural damage that makes it unpredictable. Even if it's still standing, it may not survive the next storm, or the one after that.</p>
+                </div>
+            </div>
+
+            <div class="reason-card">
+                <div class="reason-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </div>
+                <div class="reason-card-body">
+                    <h3>Too Close to Structures</h3>
+                    <p>Trees growing toward your home, outbuildings, power lines, or fencing create real long-term risk. Root intrusion, branch failure, and storm lean all become more dangerous the closer a tree grows to a structure.</p>
+                </div>
+            </div>
+
+            <div class="reason-card">
+                <div class="reason-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                </div>
+                <div class="reason-card-body">
+                    <h3>Root Damage or Decay</h3>
+                    <p>Root problems are often invisible until it's too late. Girdling roots, soil heave around the base, mushrooms or fungal growth at the trunk, and visible decay are all warning signs that a tree's foundation is compromised.</p>
                 </div>
             </div>
 
@@ -1044,26 +1003,26 @@
             <span class="section-label">How We Work</span>
             <div class="divider" aria-hidden="true"></div>
             <h2 id="approach-h2">Our Approach</h2>
-            <p>Emergency work demands more discipline, not less. We don't rush the assessment just because the situation is urgent.</p>
+            <p>Every removal follows the same disciplined process: assess first, rig right, and leave clean.</p>
         </div>
         <div class="process-steps">
 
             <div class="process-step">
                 <div class="process-step-num" aria-hidden="true">1</div>
-                <h3>Safety Assessment First</h3>
-                <p>Before any work starts, we assess the scene: live electrical lines, structural instability, ground conditions, and safe access points. The situation may be urgent, but the assessment isn't skipped. Rushing the assessment is how people get hurt.</p>
+                <h3>Assessment</h3>
+                <p>We start with a thorough evaluation of the tree, including its lean, structural condition, proximity to structures, and available access. This informs every decision we make about rigging approach and sequencing. We don't just start cutting.</p>
             </div>
 
             <div class="process-step">
                 <div class="process-step-num" aria-hidden="true">2</div>
-                <h3>Controlled Removal</h3>
-                <p>Using specialized rigging, cranes when necessary, and careful piece-by-piece sequencing, we remove the tree without worsening the structural situation. Every lift and cut is planned. We work clean even in difficult conditions.</p>
+                <h3>Specialized Rigging</h3>
+                <p>Complex removals require controlled sectioning and precision rigging to dictate exactly where each piece lands. We use the right technique for the job, whether that's standard climbing and rigging or crane-assisted removal for large or difficult trees.</p>
             </div>
 
             <div class="process-step">
                 <div class="process-step-num" aria-hidden="true">3</div>
-                <h3>Full Cleanup &amp; Documentation</h3>
-                <p>We haul all debris and leave the property clear. We also document the work as we go, including photos of the tree before, during, and after removal, which can be useful when working with your insurance company.</p>
+                <h3>Complete Cleanup</h3>
+                <p>Every job ends with a thorough cleanup. Limbs, brush, and debris are hauled out. Stumps can be ground below grade or left flush. Your call. We don't consider the job done until the property is clear.</p>
             </div>
 
         </div>
@@ -1080,19 +1039,29 @@
             <span class="section-label">Why Choose Us</span>
             <div class="divider" aria-hidden="true"></div>
             <h2 id="trust-h2">Why Barton's Tree Care</h2>
-            <p>Experience, equipment, and transparency: three things that matter most in an emergency.</p>
+            <p>Licensed, experienced, and equipped for the work that other companies won't touch.</p>
         </div>
         <div class="trust-grid">
 
             <div class="trust-card">
                 <div class="trust-card-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12 6 12 12 16 14"/>
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M12 14c-5 0-8 2-8 4v2h16v-2c0-2-3-4-8-4z"/>
                     </svg>
                 </div>
-                <h3>24-Hour Response</h3>
-                <p>Storm damage doesn't happen during business hours. We're available to assess emergency situations and mobilize quickly when it matters. Call (443) 306-3037 or (410) 710-0164. You'll reach someone who can help.</p>
+                <h3>30+ Years Experience</h3>
+                <p>Ed Barton III has been doing tree work in Maryland since 1989. That's three decades of removals, storm response, and complex rigging jobs, the kind of experience that makes the difference on difficult trees.</p>
+            </div>
+
+            <div class="trust-card">
+                <div class="trust-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h3>Maryland Licensed</h3>
+                <p>We hold MD Tree Expert License #133 &amp; #1883. You're working with properly licensed professionals who carry the right insurance, not a crew that showed up in a truck.</p>
             </div>
 
             <div class="trust-card">
@@ -1101,18 +1070,8 @@
                         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
                     </svg>
                 </div>
-                <h3>Crane &amp; Rigging Capability</h3>
-                <p>Getting a tree off a structure safely isn't a chainsaw job. It requires crane access, precision rigging, and a crew that's done it before. Barton's has the equipment and decades of experience to handle high-risk situations without making them worse.</p>
-            </div>
-
-            <div class="trust-card">
-                <div class="trust-card-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                        <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                </div>
-                <h3>Transparent About Scope</h3>
-                <p>We handle the tree. We're clear about that from the first call. We don't attempt roofing, siding, or structural work, and we'll tell you upfront so you can coordinate with the right contractors. No surprises on scope.</p>
+                <h3>Crane &amp; Rigging Expertise</h3>
+                <p>Not every company has the equipment or skill for complex removals. Barton's has been doing high-risk, precision rigging work for decades, including crane-assisted removals that most crews won't attempt.</p>
             </div>
 
         </div>
@@ -1125,8 +1084,8 @@
 ==================================================== -->
 <section class="cta-band" aria-labelledby="cta-h2">
     <div class="container">
-        <h2 id="cta-h2">Storm Damage? Call Now.</h2>
-        <p>Barton's Tree Care responds to storm damage situations across Maryland. Licensed, experienced, and equipped for the tough jobs.</p>
+        <h2 id="cta-h2">Ready to Remove That Tree?</h2>
+        <p>Call Barton's Tree Care for a free assessment and quote. Serving homeowners across Maryland since 1989.</p>
         <div class="cta-band-btns">
             <a class="btn btn-cta-solid" href="tel:+14107100164" aria-label="Call Barton's Tree Care">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1134,7 +1093,7 @@
                 </svg>
                 Call (410) 710-0164
             </a>
-            <a class="btn btn-cta-outline" href="index.html#contact">Request a Free Quote</a>
+            <a class="btn btn-cta-outline" href="/#contact">Request a Free Quote</a>
         </div>
     </div>
 </section>
@@ -1150,7 +1109,7 @@
             <!-- Col 1: Company Info -->
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
+                    <img src="../assets/logos/bartons_logo_transparent.png" alt="" class="logo-img" aria-hidden="true">
                     <div>
                         <span class="logo-name">Barton's Tree Care</span>
                         <span class="logo-sub">Tree Service · Est. 1989</span>
@@ -1201,16 +1160,16 @@
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul role="list">
-                    <li><a href="tree-removal.html">Tree Removal</a></li>
-                    <li><a href="storm-damage.html">Storm Damage Remediation</a></li>
-                    <li><a href="pruning.html">Pruning</a></li>
-                    <li><a href="index.html#services">Stump Grinding</a></li>
-                    <li><a href="index.html#services">Lot Clearing</a></li>
-                    <li><a href="index.html#services">Risk Assessment</a></li>
-                    <li><a href="index.html#services">Planting</a></li>
-                    <li><a href="index.html#services">Construction Management Plans</a></li>
-                    <li><a href="index.html#services">Fertilization &amp; Pest Control</a></li>
-                    <li><a href="index.html#services">Cabling &amp; Bracing</a></li>
+                    <li><a href="/tree-removal/">Tree Removal</a></li>
+                    <li><a href="/storm-damage/">Storm Damage Remediation</a></li>
+                    <li><a href="/pruning/">Pruning</a></li>
+                    <li><a href="/#services">Stump Grinding</a></li>
+                    <li><a href="/#services">Lot Clearing</a></li>
+                    <li><a href="/#services">Risk Assessment</a></li>
+                    <li><a href="/#services">Planting</a></li>
+                    <li><a href="/#services">Construction Management Plans</a></li>
+                    <li><a href="/#services">Fertilization &amp; Pest Control</a></li>
+                    <li><a href="/#services">Cabling &amp; Bracing</a></li>
                 </ul>
             </div>
 
@@ -1218,14 +1177,14 @@
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul role="list">
-                    <li><a href="index.html#why">Why Choose Us</a></li>
-                    <li><a href="index.html#reviews">Customer Reviews</a></li>
-                    <li><a href="our-work.html">Our Work</a></li>
-                    <li><a href="index.html#contact">Request a Quote</a></li>
+                    <li><a href="/#why">Why Choose Us</a></li>
+                    <li><a href="/#reviews">Customer Reviews</a></li>
+                    <li><a href="/our-work/">Our Work</a></li>
+                    <li><a href="/#contact">Request a Quote</a></li>
                     <li><a href="tel:+14107100164">Call Now</a></li>
                     <li><a href="https://www.facebook.com/bartonstree" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                    <li><a href="index.html#service-area">Service Areas</a></li>
-                    <li><a href="review-request.html">Leave a Review</a></li>
+                    <li><a href="/#service-area">Service Areas</a></li>
+                    <li><a href="/leave-a-review/">Leave a Review</a></li>
                 </ul>
             </div>
 
