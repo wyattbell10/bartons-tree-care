@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Work | Barton's Tree Care</title>
-    <meta name="description" content="See Barton's Tree Care in action — crane work, tree removals, storm damage remediation, pruning, and before & after results across Maryland.">
-    <link rel="canonical" href="https://bartonstreecare.com/our-work/">
+    <title>Stump Grinding &amp; Removal in Crofton, MD | Barton's Tree Care</title>
+    <meta name="description" content="Stump grinding and removal in Crofton, MD and throughout Maryland. Barton's Tree Care completes the job after the tree comes down — licensed, experienced, and based in Crofton since 1989. Call (410) 710-0164.">
+    <link rel="canonical" href="https://bartonstreecare.com/stump-grinding-removal/">
 
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/logos/bartons_logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/logos/bartons_logo.png">
@@ -261,8 +261,6 @@
     }
     .main-nav a:hover { color: var(--g800); }
     .main-nav a:hover::after { width: 100%; }
-    .main-nav a.active { color: var(--g800); }
-    .main-nav a.active::after { width: 100%; }
 
     .header-right { display: flex; align-items: center; gap: 14px; }
     .header-tel {
@@ -333,7 +331,7 @@
     ============================================================ */
     .page-hero {
         position: relative;
-        min-height: 420px;
+        min-height: 460px;
         display: flex;
         align-items: center;
         padding-top: 72px;
@@ -360,6 +358,7 @@
         position: relative;
         z-index: 2;
         padding: 72px 0 80px;
+        max-width: 760px;
     }
     .page-hero-eyebrow {
         display: inline-flex;
@@ -387,105 +386,277 @@
     .page-hero h1 {
         color: var(--white);
         text-transform: uppercase;
-        margin-bottom: 10px;
+        margin-bottom: 16px;
     }
-    .page-hero h1 .accent { color: var(--g300); }
     .page-hero-sub {
-        font-size: 1.1rem;
+        font-size: 1.12rem;
         color: rgba(255,255,255,.76);
         max-width: 580px;
         line-height: 1.72;
-        margin-top: 16px;
+        margin-bottom: 32px;
     }
-
-    /* ============================================================
-       CATEGORY NAV
-    ============================================================ */
-    .category-nav {
-        background: var(--white);
-        border-bottom: 1px solid var(--cr300);
-        box-shadow: var(--sh-sm);
-        position: sticky;
-        top: 72px;
-        z-index: 50;
-    }
-    .category-nav-inner {
+    .page-hero-ctas {
         display: flex;
-        gap: 0;
-        overflow-x: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+        gap: 14px;
+        flex-wrap: wrap;
     }
-    .category-nav-inner::-webkit-scrollbar { display: none; }
-    .cat-link {
-        display: block;
-        padding: 16px 22px;
-        font-family: var(--ff-display);
-        font-size: .82rem;
-        font-weight: 600;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-        color: var(--ch600);
-        white-space: nowrap;
-        border-bottom: 3px solid transparent;
-        transition: color var(--ease), border-color var(--ease);
-    }
-    .cat-link:hover { color: var(--g800); border-bottom-color: var(--g400); }
-    .cat-link.active { color: var(--g800); border-bottom-color: var(--g600); }
 
     /* ============================================================
-       GALLERY GRID
+       SERVICE INTRO
     ============================================================ */
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
+    .service-intro {
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .service-intro p {
+        font-size: 1.1rem;
+        color: var(--ch600);
+        line-height: 1.78;
     }
 
-    .gallery-card {
-        border-radius: var(--r-md);
-        overflow: hidden;
-        background: var(--white);
-        box-shadow: var(--sh-md);
-        transition: transform var(--ease), box-shadow var(--ease);
-        margin: 0;
+    /* ============================================================
+       REASONS GRID
+    ============================================================ */
+    .reasons-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
     }
-    .gallery-card:hover {
-        transform: translateY(-3px);
+    .reason-card {
+        background: var(--white);
+        border-radius: var(--r-md);
+        padding: 32px 28px;
+        box-shadow: var(--sh-sm);
+        border-left: 4px solid var(--g500);
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    .reason-card-icon {
+        width: 48px; height: 48px;
+        flex-shrink: 0;
+        background: var(--cr200);
+        border-radius: var(--r-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .reason-card-icon svg {
+        width: 22px; height: 22px;
+        stroke: var(--g600);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .reason-card-body h3 {
+        color: var(--g900);
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+    .reason-card-body p {
+        color: var(--ch600);
+        font-size: .95rem;
+        line-height: 1.65;
+    }
+
+    /* ============================================================
+       COMPARISON CARDS (grinding vs removal)
+    ============================================================ */
+    .compare-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+    .compare-card {
+        background: var(--white);
+        border-radius: var(--r-md);
+        padding: 40px 32px;
+        box-shadow: var(--sh-sm);
+        border-top: 4px solid var(--g500);
+    }
+    .compare-card-label {
+        display: inline-block;
+        font-size: .72rem;
+        font-weight: 700;
+        letter-spacing: .13em;
+        text-transform: uppercase;
+        color: var(--g600);
+        margin-bottom: 12px;
+    }
+    .compare-card h3 {
+        color: var(--g900);
+        font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+        margin-bottom: 16px;
+    }
+    .compare-card p {
+        color: var(--ch600);
+        font-size: .97rem;
+        line-height: 1.72;
+    }
+
+    /* ============================================================
+       PHOTO SPLIT
+    ============================================================ */
+    .split-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+    }
+    .split-img {
+        border-radius: var(--r-lg);
+        overflow: hidden;
         box-shadow: var(--sh-lg);
     }
-    .gallery-img-wrap {
-        aspect-ratio: 4 / 3;
-        overflow: hidden;
-        background: var(--ch800);
-    }
-    .gallery-img-wrap img {
+    .split-img img {
         width: 100%;
-        height: 100%;
+        height: 420px;
         object-fit: cover;
-        object-position: center;
-        display: block;
-        transition: transform .4s ease;
     }
-    .gallery-card:hover .gallery-img-wrap img {
-        transform: scale(1.04);
-    }
-    .gallery-caption {
-        padding: 11px 16px;
-        font-size: .76rem;
-        font-weight: 700;
-        color: var(--ch600);
-        font-family: var(--ff-display);
-        letter-spacing: .09em;
+    .split-content .section-label { display: block; margin-bottom: 10px; }
+    .split-content h2 {
+        color: var(--g900);
         text-transform: uppercase;
-        border-top: 1px solid var(--cr300);
+        margin-bottom: 20px;
     }
+    .split-content p {
+        color: var(--ch600);
+        font-size: 1.02rem;
+        line-height: 1.78;
+        margin-bottom: 16px;
+    }
+    .split-content p:last-of-type { margin-bottom: 28px; }
+    .split-content a.inline-link {
+        color: var(--g700);
+        text-decoration: underline;
+        text-decoration-color: var(--g400);
+        text-underline-offset: 3px;
+        font-weight: 600;
+        transition: color var(--ease);
+    }
+    .split-content a.inline-link:hover { color: var(--g600); }
+
+    /* ============================================================
+       TRUST SECTION
+    ============================================================ */
+    .section-dark {
+        background: var(--g900);
+    }
+    .section-dark .section-header h2 { color: var(--white); }
+    .section-dark .section-header p { color: rgba(255,255,255,.65); }
+    .section-dark .section-label { color: var(--g300); }
+    .section-dark .divider { background: var(--g500); }
+
+    .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .trust-card {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: var(--r-md);
+        padding: 36px 28px;
+        text-align: center;
+    }
+    .trust-card-icon {
+        width: 60px; height: 60px;
+        border-radius: 50%;
+        background: rgba(106,184,135,.15);
+        border: 1px solid rgba(106,184,135,.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+    .trust-card-icon svg {
+        width: 26px; height: 26px;
+        stroke: var(--g300);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .trust-card h3 {
+        color: var(--white);
+        margin-bottom: 10px;
+        font-size: 1.12rem;
+    }
+    .trust-card p {
+        color: rgba(255,255,255,.62);
+        font-size: .92rem;
+        line-height: 1.65;
+    }
+
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .faq-item {
+        background: var(--white);
+        border-radius: var(--r-md);
+        box-shadow: var(--sh-sm);
+        overflow: hidden;
+    }
+    .faq-question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
+        padding: 22px 28px;
+        text-align: left;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: var(--ff-display);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--g900);
+        letter-spacing: .02em;
+        transition: color var(--ease);
+    }
+    .faq-question:hover { color: var(--g700); }
+    .faq-icon {
+        width: 22px; height: 22px;
+        flex-shrink: 0;
+        stroke: var(--g500);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        transition: transform var(--ease);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+        display: none;
+        padding: 0 28px 24px;
+        color: var(--ch600);
+        font-size: .97rem;
+        line-height: 1.75;
+    }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-answer a {
+        color: var(--g700);
+        text-decoration: underline;
+        text-decoration-color: var(--g400);
+        text-underline-offset: 3px;
+        font-weight: 600;
+    }
+    .faq-answer a:hover { color: var(--g600); }
 
     /* ============================================================
        CTA BAND
     ============================================================ */
     .cta-band {
-        background: var(--g900);
+        background: var(--ch900);
         padding: 72px 0;
         text-align: center;
     }
@@ -598,19 +769,6 @@
     .footer-bottom p { font-size: .84rem; }
     .footer-bottom-area { font-size: .84rem; color: rgba(255,255,255,.55); }
 
-    .footer-email {
-        font-size: .95rem;
-        margin-top: 6px;
-        display: block;
-    }
-    .footer-license {
-        margin-top: 12px;
-        font-size: .78rem;
-        color: rgba(255,255,255,.38);
-        letter-spacing: .04em;
-    }
-    .footer-col ul + h4 { margin-top: 22px; }
-
     .footer-info-list {
         margin-top: 16px;
         display: flex;
@@ -623,16 +781,14 @@
         gap: 10px;
     }
     .footer-info-icon {
-        width: 15px;
-        height: 15px;
+        width: 15px; height: 15px;
         flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     .footer-info-icon svg {
-        width: 14px;
-        height: 14px;
+        width: 14px; height: 14px;
         stroke: rgba(255,255,255,.4);
         fill: none;
         stroke-width: 1.75;
@@ -698,8 +854,8 @@
        RESPONSIVE
     ============================================================ */
     @media (max-width: 1024px) {
-        .gallery-grid  { grid-template-columns: repeat(2, 1fr); }
-        .footer-grid   { grid-template-columns: 1fr 1fr; gap: 36px; }
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+        .split-section { gap: 40px; }
     }
 
     @media (max-width: 768px) {
@@ -712,19 +868,27 @@
         .mobile-call       { display: block; }
         body               { padding-bottom: 66px; }
 
-        .gallery-grid  { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+        .reasons-grid  { grid-template-columns: 1fr; }
+        .compare-grid  { grid-template-columns: 1fr; }
+        .trust-grid    { grid-template-columns: 1fr; }
+        .split-section { grid-template-columns: 1fr; }
+        .split-img     { order: -1; }
+        .split-img img { height: 280px; }
+        .page-hero-ctas { flex-direction: column; align-items: flex-start; }
         .footer-grid   { grid-template-columns: 1fr; gap: 28px; }
         .footer-bottom { flex-direction: column; align-items: flex-start; }
         .footer-map    { height: 220px; }
         .cta-band-btns { flex-direction: column; align-items: center; }
         .btn-cta-solid,
         .btn-cta-outline { width: 100%; max-width: 340px; justify-content: center; }
-        .gallery-card:hover { transform: none; }
     }
 
     @media (max-width: 480px) {
-        .gallery-grid { grid-template-columns: 1fr; }
-        .page-hero { min-height: 360px; }
+        .page-hero { min-height: 380px; }
+        .reason-card { flex-direction: column; gap: 14px; }
+        .compare-card { padding: 28px 22px; }
+        .faq-question { padding: 18px 20px; }
+        .faq-answer { padding: 0 20px 20px; }
     }
 
     /* ============================================================
@@ -770,7 +934,7 @@
                 <ul class="main-nav" role="list">
                     <li><a href="/#services">Services</a></li>
                     <li><a href="/#why">Why Choose Us</a></li>
-                    <li><a href="/our-work/" class="active">Our Work</a></li>
+                    <li><a href="/our-work/">Our Work</a></li>
                     <li><a href="/#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -813,168 +977,141 @@
         <div class="page-hero-content">
             <div class="page-hero-eyebrow" aria-hidden="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                    <circle cx="8.5" cy="8.5" r="1.5"/>
-                    <polyline points="21 15 16 10 5 21"/>
+                    <circle cx="12" cy="19" r="2"/>
+                    <path d="M12 17V8"/>
+                    <path d="M5 8h14"/>
+                    <path d="M7 4l-2 4h14l-2-4"/>
                 </svg>
-                Featured Work
+                Stump Grinding &amp; Removal · Crofton, MD
             </div>
-            <h1 id="page-hero-h1">
-                Our Work<br>
-                <span class="accent">Professional Tree Care Across Maryland</span>
-            </h1>
-            <p class="page-hero-sub">A look at crane work, removals, storm damage remediation, pruning, and cleanup performed by Barton's Tree Care.</p>
+            <h1 id="page-hero-h1">Stump Grinding &amp; Removal in Crofton, MD</h1>
+            <p class="page-hero-sub">The tree is down. The stump doesn't have to stay. Barton's Tree Care handles stump grinding and stump removal so you can get full use of your property again.</p>
+            <div class="page-hero-ctas">
+                <a class="btn btn-hero-solid" href="tel:+14107100164" aria-label="Call Barton's Tree Care">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Call (410) 710-0164
+                </a>
+                <a class="btn btn-hero-outline" href="/#contact">Request a Free Quote</a>
+            </div>
         </div>
     </div>
 </section>
 
 
 <!-- ===================================================
-     CATEGORY NAV
+     INTRO
 ==================================================== -->
-<nav class="category-nav" aria-label="Gallery categories">
+<section class="section" aria-label="Service overview">
     <div class="container">
-        <div class="category-nav-inner">
-            <a class="cat-link" href="#specialized-equipment">Specialized Equipment</a>
-            <a class="cat-link" href="#tree-removal">Tree Removal</a>
-            <a class="cat-link" href="#storm-damage">Storm Damage</a>
-            <a class="cat-link" href="#pruning">Pruning</a>
-        </div>
-    </div>
-</nav>
-
-
-<!-- ===================================================
-     SPECIALIZED EQUIPMENT
-==================================================== -->
-<section class="section" id="specialized-equipment" aria-labelledby="equipment-h2">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-label">Specialized Equipment</span>
+        <div class="service-intro">
+            <span class="section-label">What to Know</span>
             <div class="divider" aria-hidden="true"></div>
-            <h2 id="equipment-h2">Specialized Equipment</h2>
-            <p>Crane-assisted removals, bucket truck access, and precision rigging for difficult residential tree work: jobs that require more than a chainsaw and a ladder.</p>
-        </div>
-        <div class="gallery-grid" role="list" aria-label="Specialized equipment photos">
-
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/specialized-equipment/crane-assisted-tree-removal.jpg"
-                         alt="Crane-assisted tree removal over a residential structure in Maryland"
-                         loading="lazy">
-                </div>
-                <figcaption class="gallery-caption">Crane-Assisted Tree Removal</figcaption>
-            </figure>
-
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/specialized-equipment/specialized-equipment-access.jpg"
-                         alt="Specialized equipment and rigging used for technical tree removal in Maryland"
-                         loading="lazy">
-                </div>
-                <figcaption class="gallery-caption">Specialized Equipment Access</figcaption>
-            </figure>
-
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/specialized-equipment/elevated-access-for-difficult-removals.jpg"
-                         alt="Elevated access equipment used for difficult canopy tree removal"
-                         style="object-position: center 15%"
-                         loading="lazy">
-                </div>
-                <figcaption class="gallery-caption">Elevated Access for Difficult Removals</figcaption>
-            </figure>
-
+            <p>After a tree is removed, the stump is what's left behind. For many homeowners, that's where the job still feels unfinished. A stump sitting in the yard limits how you can use the space, creates a mowing obstacle, and can attract wood-boring insects as it slowly decays. Barton's Tree Care handles both stump grinding and stump removal throughout Crofton, MD and the surrounding Maryland communities. Whether you're finishing up after a recent tree removal or finally dealing with an old stump that's been there for years, we can assess your situation and get it done right.</p>
         </div>
     </div>
 </section>
 
 
 <!-- ===================================================
-     TREE REMOVAL
+     GRINDING VS REMOVAL
 ==================================================== -->
-<section class="section section-alt" id="tree-removal" aria-labelledby="removal-h2">
+<section class="section section-alt" aria-labelledby="compare-h2">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">Complete Removals</span>
+            <span class="section-label">Understanding the Options</span>
             <div class="divider" aria-hidden="true"></div>
-            <h2 id="removal-h2">Tree Removal</h2>
-            <p>Hazardous, unwanted, and difficult trees removed cleanly, from small residential trees to large canopy removal projects.</p>
+            <h2 id="compare-h2">Stump Grinding vs. Stump Removal</h2>
+            <p>Both methods eliminate the stump from your property. The right approach depends on what you want to do with the space afterward.</p>
         </div>
-        <div class="gallery-grid" role="list" aria-label="Tree removal photos">
+        <div class="compare-grid">
 
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/tree-removal/large-tree-removal.jpg"
-                         alt="Large tree removal on a residential property in Maryland"
-                         loading="lazy">
-                </div>
-                <figcaption class="gallery-caption">Large tree removal</figcaption>
-            </figure>
+            <div class="compare-card">
+                <span class="compare-card-label">Option One</span>
+                <h3>Stump Grinding</h3>
+                <p>Stump grinding uses specialized equipment to chip the stump down below the surface of the ground. The root system remains in place and naturally decays over time underground. Grinding is the more common approach for most residential situations — it removes the visible stump, allows the area to be covered with soil and mulch, and causes minimal disruption to the surrounding yard.</p>
+                <p style="margin-top:14px; color: var(--ch600); font-size:.95rem; line-height:1.72;">Best for: eliminating the stump without extensive excavation, and when you don't need the root system fully cleared.</p>
+            </div>
 
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/tree-removal/hazardous-canopy-removal.jpg"
-                         alt="Hazardous canopy tree removal by Barton's Tree Care"
-                         loading="lazy">
-                </div>
-                <figcaption class="gallery-caption">Hazardous canopy removal</figcaption>
-            </figure>
-
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/tree-removal/complete-removals-and-cleanup.jpg"
-                         alt="Complete tree removal and property cleanup in Maryland"
-                         loading="lazy">
-                </div>
-                <figcaption class="gallery-caption">Complete removals &amp; cleanup</figcaption>
-            </figure>
+            <div class="compare-card">
+                <span class="compare-card-label">Option Two</span>
+                <h3>Stump Removal</h3>
+                <p>Stump removal involves extracting both the stump and the major root structure from the ground. This is a more involved process that requires more excavation and leaves the area more fully cleared. It's often the better option when you need the ground completely free of root material — for example, when you're planning to plant a new tree in the same location or doing significant landscaping in the area.</p>
+                <p style="margin-top:14px; color: var(--ch600); font-size:.95rem; line-height:1.72;">Best for: situations where you need the root system fully out of the ground, not just the stump above grade.</p>
+            </div>
 
         </div>
+        <p style="text-align:center; margin-top:32px; color:var(--ch600); font-size:.97rem;">Not sure which approach is right for your situation? <a href="/#contact" style="color:var(--g700); font-weight:600; text-decoration:underline; text-decoration-color:var(--g400); text-underline-offset:3px;">Contact Barton's for a free assessment.</a></p>
     </div>
 </section>
 
 
 <!-- ===================================================
-     STORM DAMAGE
+     WHEN STUMP WORK MAKES SENSE
 ==================================================== -->
-<section class="section" id="storm-damage" aria-labelledby="storm-h2">
+<section class="section" aria-labelledby="reasons-h2">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">Emergency Response</span>
+            <span class="section-label">Common Situations</span>
             <div class="divider" aria-hidden="true"></div>
-            <h2 id="storm-h2">Storm Damage</h2>
-            <p>Fast response for storm-damaged trees, including trees on structures, blocked driveways, and hazardous lean situations.</p>
+            <h2 id="reasons-h2">When Homeowners Deal With Stumps</h2>
+            <p>Stump work isn't always the first thing homeowners think about, but these are the situations where it genuinely makes a difference.</p>
         </div>
-        <div class="gallery-grid" role="list" aria-label="Storm damage remediation photos">
+        <div class="reasons-grid">
 
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/storm-damage/tree-on-structure.jpg"
-                         alt="Storm-damaged tree resting on a residential structure in Maryland"
-                         loading="lazy">
+            <div class="reason-card">
+                <div class="reason-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22V12M8 6L3 3l3 7H3l5 5h3M16 6l5-3-3 7h3l-5 5h-3"/>
+                    </svg>
                 </div>
-                <figcaption class="gallery-caption">Tree on structure</figcaption>
-            </figure>
+                <div class="reason-card-body">
+                    <h3>Completing a Tree Removal</h3>
+                    <p>The tree is down, but the stump is still there. Addressing the stump finishes the job and restores full usability to the space. Handling both the removal and the stump at the same time is usually the most efficient approach.</p>
+                </div>
+            </div>
 
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/storm-damage/fallen-tree-remediation.jpg"
-                         alt="Fallen tree remediation and removal after storm damage"
-                         loading="lazy">
+            <div class="reason-card">
+                <div class="reason-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
                 </div>
-                <figcaption class="gallery-caption">Fallen tree remediation</figcaption>
-            </figure>
+                <div class="reason-card-body">
+                    <h3>Reclaiming Usable Yard Space</h3>
+                    <p>A stump in the middle of the lawn creates an ongoing mowing obstacle and can make landscaping or other yard projects harder to execute. Removing it gives you clean, usable space back.</p>
+                </div>
+            </div>
 
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/storm-damage/storm-emergency-response.jpg"
-                         alt="Emergency storm damage tree response by Barton's Tree Care"
-                         style="object-position: center 30%"
-                         loading="lazy">
+            <div class="reason-card">
+                <div class="reason-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
                 </div>
-                <figcaption class="gallery-caption">Storm Emergency Response</figcaption>
-            </figure>
+                <div class="reason-card-body">
+                    <h3>Eliminating a Hazard</h3>
+                    <p>An exposed stump is a tripping hazard, particularly in yards where children or elderly family members spend time. Grinding the stump below grade eliminates the obstacle and reduces risk.</p>
+                </div>
+            </div>
+
+            <div class="reason-card">
+                <div class="reason-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                </div>
+                <div class="reason-card-body">
+                    <h3>Dealing With an Old Stump</h3>
+                    <p>Older stumps attract insects and fungi as they decay. Some tree species will continue sending up root sprouts, constantly trying to regrow. Getting rid of the stump stops these ongoing issues.</p>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -982,47 +1119,166 @@
 
 
 <!-- ===================================================
-     PRUNING
+     CONNECTION TO TREE REMOVAL
 ==================================================== -->
-<section class="section section-alt" id="pruning" aria-labelledby="pruning-h2">
+<section class="section section-alt" aria-label="Stump work and tree removal">
+    <div class="container">
+        <div class="split-section">
+
+            <div class="split-img">
+                <img src="../assets/products/stump_grinding.jpg"
+                     alt="Stump grinding work by Barton's Tree Care"
+                     width="640" height="420"
+                     loading="lazy">
+            </div>
+
+            <div class="split-content">
+                <span class="section-label">Part of the Full Job</span>
+                <div class="divider" style="margin: 0 0 22px;" aria-hidden="true"></div>
+                <h2>Stump Work &amp; Tree Removal</h2>
+                <p>Stump grinding and stump removal most naturally follow <a href="/tree-removal/" class="inline-link">tree removal</a>. When a tree comes down, the stump is what's left. Handling both at the same time is usually the most practical approach — the crew is already there, the site is already set up, and it avoids scheduling a separate visit.</p>
+                <p>If you're considering removing a tree, ask about stump work when you call. Barton's Tree Care can assess the full scope of the project — tree removal, stump grinding or removal, and cleanup — and give you a clear picture of what's involved before the work starts.</p>
+                <a class="btn btn-primary" href="tel:+14107100164">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Call (410) 710-0164
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     WHY BARTON'S
+==================================================== -->
+<section class="section section-dark" aria-labelledby="trust-h2">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">Tree Health</span>
+            <span class="section-label">Why Choose Us</span>
             <div class="divider" aria-hidden="true"></div>
-            <h2 id="pruning-h2">Pruning</h2>
-            <p>All phases of tree pruning with an emphasis on preserving health, safety, and structure: from crown thinning to deadwood removal.</p>
+            <h2 id="trust-h2">Why Barton's Tree Care</h2>
+            <p>Licensed, local, and experienced. Barton's has been the trusted choice for tree work in the Crofton area and throughout Maryland since 1989.</p>
         </div>
-        <div class="gallery-grid" role="list" aria-label="Pruning photos">
+        <div class="trust-grid">
 
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/pruning/crown-pruning.jpg"
-                         alt="Crown pruning on a residential tree in Maryland"
-                         style="object-position: center top"
-                         loading="lazy">
+            <div class="trust-card">
+                <div class="trust-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M12 14c-5 0-8 2-8 4v2h16v-2c0-2-3-4-8-4z"/>
+                    </svg>
                 </div>
-                <figcaption class="gallery-caption">Crown Pruning</figcaption>
-            </figure>
+                <h3>30+ Years of Experience</h3>
+                <p>Ed Barton III has been doing tree work in Maryland since 1989. Stump work is part of the full-service tree care Barton's has been providing throughout Anne Arundel County and the surrounding communities for over three decades.</p>
+            </div>
 
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/pruning/structural-pruning.jpg"
-                         alt="Structural pruning to improve tree form and reduce failure risk"
-                         style="object-position: center 25%"
-                         loading="lazy">
+            <div class="trust-card">
+                <div class="trust-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
                 </div>
-                <figcaption class="gallery-caption">Structural Pruning</figcaption>
-            </figure>
+                <h3>Maryland Licensed &amp; Insured</h3>
+                <p>We hold MD Tree Expert License #133 &amp; #1883. You're working with licensed professionals who carry the right insurance — not a crew that showed up in a truck with no credentials to verify.</p>
+            </div>
 
-            <figure class="gallery-card" role="listitem">
-                <div class="gallery-img-wrap">
-                    <img src="../assets/gallery/pruning/elevated-canopy-access.jpg"
-                         alt="Elevated canopy pruning using specialized equipment"
-                         style="object-position: center 10%"
-                         loading="lazy">
+            <div class="trust-card">
+                <div class="trust-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        <circle cx="12" cy="9" r="2.5"/>
+                    </svg>
                 </div>
-                <figcaption class="gallery-caption">Elevated Canopy Access</figcaption>
-            </figure>
+                <h3>Local &amp; Based in Crofton</h3>
+                <p>Barton's Tree Care is based in Crofton, MD. We serve Crofton and the surrounding Maryland communities — Gambrills, Odenton, Davidsonville, Annapolis, Edgewater, Severna Park, and beyond. We know the area.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     FAQ
+==================================================== -->
+<section class="section" aria-labelledby="faq-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Common Questions</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="faq-h2">Stump Grinding &amp; Removal FAQ</h2>
+            <p>Answers to the questions homeowners most commonly ask before scheduling stump work.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    What's the difference between stump grinding and stump removal?
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    Stump grinding chips the stump down below grade using grinding equipment, leaving the root system in place to decay naturally underground. Stump removal involves extracting the stump along with the major root structure — a more involved process that leaves the ground more fully cleared. Most residential situations are well-suited to grinding. Removal makes more sense when you need the area completely clear of root material, such as before new planting or construction in the same space.
+                </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    Do I need stump grinding after tree removal?
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    You don't have to, but most homeowners choose to address the stump once the tree is down. A remaining stump creates an ongoing mowing obstacle, can become a tripping hazard, and will attract wood-boring insects and fungi as it decays. Some tree species also send up persistent root sprouts from the remaining stump. Dealing with it while the crew is already on-site is usually the simplest approach.
+                </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    Can Barton's handle both the tree removal and the stump?
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    Yes. <a href="/tree-removal/">Barton's tree removal service</a> and stump work are part of the same full-service offering. If you're having a tree removed, mention the stump when you call — we can assess the full scope and handle both in the same visit when practical.
+                </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    Do you provide stump grinding in Crofton, MD?
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    Yes. Barton's Tree Care is based in Crofton, MD and provides stump grinding and stump removal throughout Crofton and the surrounding Maryland communities — including Gambrills, Odenton, Davidsonville, Annapolis, Edgewater, Severna Park, and Bowie. Call <a href="tel:+14107100164">(410) 710-0164</a> for a free quote.
+                </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    How do I know whether grinding or full removal is the right choice for my situation?
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    It depends on what you plan to do with the space afterward and the specifics of the stump. Grinding handles the vast majority of residential situations cleanly. Full removal is typically the right call when you need the ground completely clear — for replanting, construction, or significant landscaping. <a href="/#contact">Contact Barton's for a free assessment</a> and we can help you determine the right approach before any work begins.
+                </div>
+            </div>
 
         </div>
     </div>
@@ -1034,8 +1290,8 @@
 ==================================================== -->
 <section class="cta-band" aria-labelledby="cta-h2">
     <div class="container">
-        <h2 id="cta-h2">Ready to Get Started?</h2>
-        <p>Call Barton's Tree Care for a free quote. Licensed Maryland Tree Experts since 1989.</p>
+        <h2 id="cta-h2">Ready to Get Rid of That Stump?</h2>
+        <p>Call Barton's Tree Care for a free assessment and quote. Based in Crofton, serving Maryland since 1989.</p>
         <div class="cta-band-btns">
             <a class="btn btn-cta-solid" href="tel:+14107100164" aria-label="Call Barton's Tree Care">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1045,6 +1301,7 @@
             </a>
             <a class="btn btn-cta-outline" href="/#contact">Request a Free Quote</a>
         </div>
+        <p style="margin-top:20px; font-size:.88rem; color:rgba(255,255,255,.45);">Owner Direct: <a href="tel:+14433063037" style="color:rgba(255,255,255,.45); text-decoration:underline;">(443) 306-3037</a></p>
     </div>
 </section>
 
@@ -1229,6 +1486,22 @@
             e.preventDefault();
             const offset = header.offsetHeight + 16;
             window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+        });
+    });
+
+    /* FAQ accordion */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(el => {
+                el.classList.remove('open');
+                el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
         });
     });
 })();
