@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/logos/bartons_logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/logos/bartons_logo.png">
     <link rel="apple-touch-icon" href="../assets/logos/bartons_logo.png">
+    <link rel="preload" as="image" href="../assets/gbp_photos/bartons_gbp_54.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
@@ -340,19 +341,19 @@
     .page-hero-bg {
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-            150deg,
-            #172e22 0%,
-            #1d3a2c 30%,
-            #254d3a 60%,
-            #1f402e 100%
-        );
+        background-color: var(--ch900);
+        background-image:
+            linear-gradient(
+                rgba(0,0,0,.44),
+                rgba(0,0,0,.44)
+            ),
+            url('../assets/gbp_photos/bartons_gbp_54.jpg');
+        background-size: 100% 100%, cover;
+        background-position: center, center 30%;
+        background-repeat: no-repeat, no-repeat;
     }
     .page-hero-bg::after {
-        content: '';
-        position: absolute; inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
-        pointer-events: none;
+        content: none;
     }
     .page-hero-content {
         position: relative;
