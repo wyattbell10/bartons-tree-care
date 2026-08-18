@@ -504,6 +504,110 @@
     }
 
     /* ============================================================
+       PHOTO SPLIT
+    ============================================================ */
+    .split-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+    }
+    .split-img {
+        border-radius: var(--r-lg);
+        overflow: hidden;
+        box-shadow: var(--sh-lg);
+    }
+    .split-img img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+    }
+    .split-content .section-label { display: block; margin-bottom: 10px; }
+    .split-content h2 {
+        color: var(--g900);
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+    .split-content p {
+        color: var(--ch600);
+        font-size: 1.02rem;
+        line-height: 1.78;
+        margin-bottom: 16px;
+    }
+    .split-content p:last-of-type { margin-bottom: 28px; }
+    .split-content a.inline-link {
+        color: var(--g700);
+        text-decoration: underline;
+        text-decoration-color: var(--g400);
+        text-underline-offset: 3px;
+        font-weight: 600;
+        transition: color var(--ease);
+    }
+    .split-content a.inline-link:hover { color: var(--g600); }
+
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .faq-item {
+        background: var(--white);
+        border-radius: var(--r-md);
+        box-shadow: var(--sh-sm);
+        overflow: hidden;
+    }
+    .faq-question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
+        padding: 22px 28px;
+        text-align: left;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: var(--ff-display);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--g900);
+        letter-spacing: .02em;
+        transition: color var(--ease);
+    }
+    .faq-question:hover { color: var(--g700); }
+    .faq-icon {
+        width: 22px; height: 22px;
+        flex-shrink: 0;
+        stroke: var(--g500);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        transition: transform var(--ease);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+        display: none;
+        padding: 0 28px 24px;
+        color: var(--ch600);
+        font-size: .97rem;
+        line-height: 1.75;
+    }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-answer a {
+        color: var(--g700);
+        text-decoration: underline;
+        text-decoration-color: var(--g400);
+        text-underline-offset: 3px;
+        font-weight: 600;
+    }
+    .faq-answer a:hover { color: var(--g600); }
+
+    /* ============================================================
        TRUST SECTION
     ============================================================ */
     .section-dark {
@@ -773,6 +877,7 @@
     ============================================================ */
     @media (max-width: 1024px) {
         .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+        .split-section { gap: 40px; }
     }
 
     @media (max-width: 768px) {
@@ -788,6 +893,9 @@
         .reasons-grid   { grid-template-columns: 1fr; }
         .process-steps  { grid-template-columns: 1fr; }
         .trust-grid     { grid-template-columns: 1fr; }
+        .split-section  { grid-template-columns: 1fr; }
+        .split-img      { order: -1; }
+        .split-img img  { height: 280px; }
         .page-hero-ctas { flex-direction: column; align-items: flex-start; }
         .footer-grid    { grid-template-columns: 1fr; gap: 28px; }
         .footer-bottom  { flex-direction: column; align-items: flex-start; }
@@ -800,6 +908,8 @@
     @media (max-width: 480px) {
         .page-hero { min-height: 380px; }
         .reason-card { flex-direction: column; gap: 14px; }
+        .faq-question { padding: 18px 20px; }
+        .faq-answer { padding: 0 20px 20px; }
     }
 
     /* ============================================================
@@ -1031,6 +1141,39 @@
 
 
 <!-- ===================================================
+     SUPPORTING IMAGE SPLIT
+==================================================== -->
+<section class="section section-alt" aria-label="What a complete tree removal involves">
+    <div class="container">
+        <div class="split-section">
+
+            <div class="split-img">
+                <img src="../assets/gallery/specialized-equipment/crane-assisted-tree-removal.jpg"
+                     alt="Crane-assisted tree removal by Barton's Tree Care"
+                     width="640" height="420"
+                     loading="lazy">
+            </div>
+
+            <div class="split-content">
+                <span class="section-label">The Full Picture</span>
+                <div class="divider" style="margin: 0 0 22px;" aria-hidden="true"></div>
+                <h2>What a Complete Removal Involves</h2>
+                <p>A removal isn't finished when the tree hits the ground. At Barton's, we take care of the full process — assessing the site, rigging sections with precision to protect the surrounding property, and hauling out everything that comes down. We work clean from first cut to final pass, so you're not left managing debris or coordinating separate crews.</p>
+                <p>If the stump remains, that's another step worth thinking through before the crew packs up. <a href="/stump-grinding-removal/" class="inline-link">Stump grinding or removal</a> can often be handled in the same visit — the equipment is already there, and it saves scheduling a separate job. Ask about it when you call.</p>
+                <a class="btn btn-primary" href="tel:+14107100164">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.124.966.33 1.92.61 2.85a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.94 5.94l1.42-1.42a2 2 0 0 1 2.11-.45c.93.28 1.884.486 2.85.61A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Call (410) 710-0164
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
      WHY BARTON'S
 ==================================================== -->
 <section class="section section-dark" aria-labelledby="trust-h2">
@@ -1080,6 +1223,90 @@
 
 
 <!-- ===================================================
+     FAQ
+==================================================== -->
+<section class="section" aria-labelledby="faq-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Common Questions</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="faq-h2">Tree Removal FAQ</h2>
+            <p>Answers to the questions homeowners most commonly ask before scheduling tree removal.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    How do I know if a tree needs to come down or can be saved?
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    Not every problem tree needs to be removed. Some structural issues can be addressed with pruning or cabling. Dead or dying trees, trees with significant root decay, and trees creating immediate hazard to structures or people typically warrant removal. If you're unsure, call Barton's for an assessment. We'll give you an honest evaluation of the tree's condition and realistic options before recommending removal.
+                </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    Can Barton's remove trees that are close to the house or other structures?
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    Yes. Working around homes, outbuildings, and fencing is a normal part of what we do. Complex removals close to structures require careful rigging and sectioning to control where each piece lands — it's not a situation you can just cut through from the top. Barton's has the experience and equipment, including crane-assisted removal capability, for trees in difficult positions.
+                </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    What happens to the tree debris after removal?
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    All limbs, brush, and sections are hauled off-site. We don't consider the job done until the property is clear. If you want any wood sections left for firewood, let us know before the work starts — we can work around that. Otherwise, everything goes.
+                </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    Can stump grinding be done at the same time as the tree removal?
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    Yes, and it's usually the most practical approach. The crew is already on site, the stump is freshly exposed, and combining the work avoids a separate scheduling. Barton's handles both tree removal and <a href="/stump-grinding-removal/">stump grinding and removal</a>. Ask about it when you call for a quote.
+                </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    How do I get an estimate for tree removal?
+                    <svg class="faq-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    Call us at <a href="tel:+14107100164">(410) 710-0164</a>. We'll assess the tree — its size, condition, location, and any site constraints — and give you a clear picture of the work and cost before anything starts. There's no charge for the assessment.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
      CTA BAND
 ==================================================== -->
 <section class="cta-band" aria-labelledby="cta-h2">
@@ -1095,6 +1322,7 @@
             </a>
             <a class="btn btn-cta-outline" href="/#contact">Request a Free Quote</a>
         </div>
+        <p style="margin-top:20px; font-size:.88rem; color:rgba(255,255,255,.45);">Owner Direct: <a href="tel:+14433063037" style="color:rgba(255,255,255,.45); text-decoration:underline;">(443) 306-3037</a></p>
     </div>
 </section>
 
@@ -1279,6 +1507,22 @@
             e.preventDefault();
             const offset = header.offsetHeight + 16;
             window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+        });
+    });
+
+    /* FAQ accordion */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(el => {
+                el.classList.remove('open');
+                el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
         });
     });
 })();
