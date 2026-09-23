@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/logos/bartons_logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/logos/bartons_logo.png">
     <link rel="apple-touch-icon" href="../assets/logos/bartons_logo.png">
-    <link rel="preload" as="image" href="../assets/gbp_photos/bartons_gbp_171.jpg">
+    <link rel="preload" as="image" href="../assets/gbp_photos/bartons_gbp_221.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
@@ -347,9 +347,9 @@
                 rgba(0,0,0,.44),
                 rgba(0,0,0,.44)
             ),
-            url('../assets/gbp_photos/bartons_gbp_171.jpg');
+            url('../assets/gbp_photos/bartons_gbp_221.jpg');
         background-size: 100% 100%, cover;
-        background-position: center, center 22%;
+        background-position: center, center 35%;
         background-repeat: no-repeat, no-repeat;
     }
     .page-hero-bg::after { content: none; }
@@ -520,7 +520,7 @@
         width: 100%;
         height: 420px;
         object-fit: cover;
-        object-position: center 75%;
+        object-position: center 5%;
     }
     .split-content .section-label { display: block; margin-bottom: 10px; }
     .split-content h2 {
@@ -544,6 +544,50 @@
         transition: color var(--ease);
     }
     .split-content a.inline-link:hover { color: var(--g600); }
+
+    /* ============================================================
+       FEATURED PROJECT
+    ============================================================ */
+    .project-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: start;
+        margin-top: 40px;
+    }
+    .project-imgs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+    .project-imgs img {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        border-radius: var(--r-md);
+        box-shadow: var(--sh-md);
+    }
+    .project-img-crew { object-position: center 20%; }
+    .project-img-plaque { object-position: center 50%; }
+    .project-body h3 {
+        color: var(--g900);
+        text-transform: uppercase;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.45rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 18px;
+    }
+    .project-body p {
+        color: var(--ch600);
+        font-size: 1.02rem;
+        line-height: 1.78;
+        margin-bottom: 16px;
+    }
+    @media (max-width: 900px) {
+        .project-grid { grid-template-columns: 1fr; gap: 32px; }
+        .project-imgs img { height: 240px; }
+    }
 
     /* ============================================================
        TRUST SECTION
@@ -1123,14 +1167,14 @@
 <!-- ===================================================
      PHOTO SPLIT
 ==================================================== -->
-<section class="section section-alt" aria-label="Barton's crew working within a living tree canopy">
+<section class="section section-alt" aria-label="Barton's bucket truck and crew on-site during preservation work">
     <div class="container">
         <div class="split-section">
 
             <div class="split-img">
-                <img src="../assets/gbp_photos/bartons_gbp_202.jpg"
-                     alt="Barton's climber positioned within the canopy of a living tree, working carefully among the branches"
-                     width="5712" height="4284"
+                <img src="../assets/gbp_photos/bartons_gbp_238.jpg"
+                     alt="Barton's orange Ford bucket truck with Altec aerial lift extended at the Anne Arundel Free School Museum, Davidsonville, Maryland"
+                     width="946" height="2048"
                      loading="lazy">
             </div>
 
@@ -1146,6 +1190,44 @@
                     </svg>
                     Call (410) 710-0164
                 </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================================================
+     FEATURED PROJECT
+==================================================== -->
+<section class="section" aria-labelledby="project-h2">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Featured Project</span>
+            <div class="divider" aria-hidden="true"></div>
+            <h2 id="project-h2">Anne Arundel Free School Museum</h2>
+            <p>Davidsonville, Maryland</p>
+        </div>
+        <div class="project-grid">
+
+            <div class="project-imgs">
+                <img class="project-img-crew"
+                     src="../assets/gbp_photos/bartons_gbp_237.jpg"
+                     alt="Barton's crew member elevated in Altec bucket lift within the upper canopy of the Northern Catalpa"
+                     width="946" height="2048"
+                     loading="lazy">
+                <img class="project-img-plaque"
+                     src="../assets/gbp_photos/bartons_gbp_219.jpg"
+                     alt="Stone plaque at the base of the tree identifying it as the Anne Arundel County Champion Northern Catalpa"
+                     width="3024" height="4032"
+                     loading="lazy">
+            </div>
+
+            <div class="project-body">
+                <span class="section-label" style="display:block; margin-bottom:10px;">The Tree</span>
+                <h3>Anne Arundel County Champion Northern Catalpa</h3>
+                <p>The stone plaque at the base of this tree identifies it as the Anne Arundel County Champion Northern Catalpa — the largest documented specimen of its species in the county.</p>
+                <p>Barton's was on-site with an Altec bucket truck for preservation work on this tree. Aerial access into the upper canopy was required — the type of job that needs the right equipment and a crew that understands how to use it safely.</p>
             </div>
 
         </div>
