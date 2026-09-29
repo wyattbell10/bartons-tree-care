@@ -589,6 +589,67 @@
         .project-imgs img { height: 240px; }
     }
 
+    .project-recommendation {
+        margin-top: 40px;
+        background: var(--white);
+        border-radius: var(--r-md);
+        border-left: 3px solid var(--g500);
+        padding: 28px 32px;
+        box-shadow: var(--sh-sm);
+    }
+    .project-rec-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-size: .72rem;
+        font-weight: 700;
+        letter-spacing: .13em;
+        text-transform: uppercase;
+        color: var(--earth600);
+        margin-bottom: 14px;
+    }
+    .project-rec-eyebrow svg {
+        width: 12px; height: 12px;
+        stroke: var(--g600);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex-shrink: 0;
+    }
+    .project-rec-quote {
+        font-style: italic;
+        font-size: 1.12rem;
+        color: var(--g900);
+        line-height: 1.70;
+        margin: 0 0 18px;
+    }
+    .project-rec-attribution {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding-top: 14px;
+        border-top: 1px solid var(--cr300);
+    }
+    .project-rec-name {
+        font-family: 'Oswald', sans-serif;
+        font-size: .97rem;
+        font-weight: 600;
+        color: var(--g900);
+        letter-spacing: .03em;
+        font-style: normal;
+    }
+    .project-rec-meta {
+        font-size: .84rem;
+        color: var(--ch500);
+        line-height: 1.45;
+        font-style: normal;
+    }
+    @media (max-width: 600px) {
+        .project-recommendation { padding: 22px 22px; }
+        .project-rec-quote { font-size: 1.02rem; }
+    }
+
     /* ============================================================
        TRUST SECTION
     ============================================================ */
@@ -1231,6 +1292,27 @@
             </div>
 
         </div>
+
+        <blockquote class="project-recommendation">
+            <span class="project-rec-eyebrow">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+                Letter of Recommendation
+            </span>
+            <p class="project-rec-quote">"I am going to share your work with everyone I can. I will recommend you and your company for any tree work that is needed."</p>
+            <footer class="project-rec-attribution">
+                <cite>
+                    <strong class="project-rec-name">Don Bailey</strong>
+                    <span class="project-rec-meta">Manager of Open Houses and Administration</span>
+                    <span class="project-rec-meta">Annearrundell County Free School Museum</span>
+                </cite>
+            </footer>
+        </blockquote>
+
     </div>
 </section>
 
